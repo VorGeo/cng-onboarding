@@ -1,0 +1,124 @@
+[
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html",
+    "href": "tutorials/stac/stac_load_e84_aws.html",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "",
+    "text": "https://registry.opendata.aws/sentinel-2-l2a-cogs/\nimport yaml\n\nimport dask.distributed\nimport folium\nimport folium.plugins\nimport geopandas as gpd\nimport odc.ui\nimport shapely.geometry\nfrom branca.element import Figure\nfrom IPython.display import HTML, display\nfrom odc.algo import to_rgba\nfrom pystac_client import Client\n\nfrom odc.stac import configure_rio, stac_load\ndef convert_bounds(bbox, invert_y=False):\n    \"\"\"\n    Helper method for changing bounding box representation to leaflet notation\n\n    ``(lon1, lat1, lon2, lat2) -&gt; ((lat1, lon1), (lat2, lon2))``\n    \"\"\"\n    x1, y1, x2, y2 = bbox\n    if invert_y:\n        y1, y2 = y2, y1\n    return ((y1, x1), (y2, x2))\ncfg = \"\"\"---\nsentinel-s2-l2a-cogs:\n  assets:\n    '*':\n      data_type: uint16\n      nodata: 0\n      unit: '1'\n    SCL:\n      data_type: uint8\n      nodata: 0\n      unit: '1'\n    visual:\n      data_type: uint8\n      nodata: 0\n      unit: '1'\n  aliases:  # Alias -&gt; Canonical Name\n    red: B04\n    green: B03\n    blue: B02\n\"*\":\n  warnings: ignore # Disable warnings about duplicate common names\n\"\"\"\ncfg = yaml.load(cfg, Loader=yaml.SafeLoader)",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#start-dask-client",
+    "href": "tutorials/stac/stac_load_e84_aws.html#start-dask-client",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Start Dask Client",
+    "text": "Start Dask Client\nThis step is optional, but it does improve load speed significantly. You don’t have to use Dask, as you can load data directly into memory of the notebook.\n\nclient = dask.distributed.Client()\nconfigure_rio(cloud_defaults=True, aws={\"aws_unsigned\": True}, client=client)\ndisplay(client)\n\n\n     \n    \n        Client\n        Client-0d4ef02a-f494-11ef-bdad-fe11494405b7\n        \n\n\n\nConnection method: Cluster object\nCluster type: distributed.LocalCluster\n\n\nDashboard: http://127.0.0.1:8787/status\n\n\n\n\n\n\n        \n\n        \n            \n            Cluster Info\n            \n    \n    \n    \n        LocalCluster\n        92cc47c5\n        \n\n\n\nDashboard: http://127.0.0.1:8787/status\nWorkers: 5\n\n\nTotal threads: 10\nTotal memory: 64.00 GiB\n\n\nStatus: running\nUsing processes: True\n\n\n\n\n\n        \n            \n                Scheduler Info\n            \n\n            \n    \n         \n        \n            Scheduler\n            Scheduler-b7e2b916-190d-408a-b065-609926c13619\n            \n\n\n\nComm: tcp://127.0.0.1:63603\nWorkers: 5\n\n\nDashboard: http://127.0.0.1:8787/status\nTotal threads: 10\n\n\nStarted: Just now\nTotal memory: 64.00 GiB\n\n\n\n\n        \n    \n\n    \n        \n            Workers\n        \n\n        \n        \n             \n            \n            \n                \n                    Worker: 0\n                \n                \n\n\n\nComm: tcp://127.0.0.1:63616\nTotal threads: 2\n\n\nDashboard: http://127.0.0.1:63620/status\nMemory: 12.80 GiB\n\n\nNanny: tcp://127.0.0.1:63606\n\n\n\nLocal directory: /var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/dask-scratch-space/worker-ayc_2s4c\n\n\n\n\n            \n            \n        \n        \n        \n             \n            \n            \n                \n                    Worker: 1\n                \n                \n\n\n\nComm: tcp://127.0.0.1:63617\nTotal threads: 2\n\n\nDashboard: http://127.0.0.1:63619/status\nMemory: 12.80 GiB\n\n\nNanny: tcp://127.0.0.1:63608\n\n\n\nLocal directory: /var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/dask-scratch-space/worker-p2if7e46\n\n\n\n\n            \n            \n        \n        \n        \n             \n            \n            \n                \n                    Worker: 2\n                \n                \n\n\n\nComm: tcp://127.0.0.1:63618\nTotal threads: 2\n\n\nDashboard: http://127.0.0.1:63624/status\nMemory: 12.80 GiB\n\n\nNanny: tcp://127.0.0.1:63610\n\n\n\nLocal directory: /var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/dask-scratch-space/worker-mbyzb8t4\n\n\n\n\n            \n            \n        \n        \n        \n             \n            \n            \n                \n                    Worker: 3\n                \n                \n\n\n\nComm: tcp://127.0.0.1:63623\nTotal threads: 2\n\n\nDashboard: http://127.0.0.1:63626/status\nMemory: 12.80 GiB\n\n\nNanny: tcp://127.0.0.1:63612\n\n\n\nLocal directory: /var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/dask-scratch-space/worker-95x4ref4\n\n\n\n\n            \n            \n        \n        \n        \n             \n            \n            \n                \n                    Worker: 4\n                \n                \n\n\n\nComm: tcp://127.0.0.1:63628\nTotal threads: 2\n\n\nDashboard: http://127.0.0.1:63629/status\nMemory: 12.80 GiB\n\n\nNanny: tcp://127.0.0.1:63614\n\n\n\nLocal directory: /var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/dask-scratch-space/worker-gmogja9v",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#find-stac-items-to-load",
+    "href": "tutorials/stac/stac_load_e84_aws.html#find-stac-items-to-load",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Find STAC Items to Load",
+    "text": "Find STAC Items to Load\n\nkm2deg = 1.0 / 111\nx, y = (113.887, -25.843)  # Center point of a query\nr = 100 * km2deg\nbbox = (x - r, y - r, x + r, y + r)\n\ncatalog = Client.open(\"https://earth-search.aws.element84.com/v1\")\n\nquery = catalog.search(\n    collections=[\"sentinel-2-l2a\"], datetime=\"2021-09-16\", limit=100, bbox=bbox\n)\n\nitems = list(query.items())\nprint(f\"Found: {len(items):d} datasets\")\n\n# Convert STAC items into a GeoJSON FeatureCollection\nstac_json = query.item_collection_as_dict()\n\nFound: 18 datasets",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#review-query-result",
+    "href": "tutorials/stac/stac_load_e84_aws.html#review-query-result",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Review Query Result",
+    "text": "Review Query Result\nWe’ll use GeoPandas DataFrame object to make plotting easier.\n\ngdf = gpd.GeoDataFrame.from_features(stac_json, \"epsg:4326\")\n\n# Compute granule id from components\ngdf[\"granule\"] = (\n    gdf[\"mgrs:utm_zone\"].apply(lambda x: f\"{x:02d}\")\n    + gdf[\"mgrs:latitude_band\"]\n    + gdf[\"mgrs:grid_square\"]\n)\n\nfig = gdf.plot(\n    \"granule\",\n    edgecolor=\"black\",\n    categorical=True,\n    aspect=\"equal\",\n    alpha=0.5,\n    figsize=(6, 12),\n    legend=True,\n    legend_kwds={\"loc\": \"upper left\", \"frameon\": False, \"ncol\": 1},\n)\n_ = fig.set_title(\"STAC Query Results\")",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#plot-stac-items-on-a-map",
+    "href": "tutorials/stac/stac_load_e84_aws.html#plot-stac-items-on-a-map",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Plot STAC Items on a Map",
+    "text": "Plot STAC Items on a Map\n\n# https://github.com/python-visualization/folium/issues/1501\nfig = Figure(width=\"400px\", height=\"500px\")\nmap1 = folium.Map()\nfig.add_child(map1)\n\nfolium.GeoJson(\n    shapely.geometry.box(*bbox),\n    style_function=lambda x: dict(fill=False, weight=1, opacity=0.7, color=\"olive\"),\n    name=\"Query\",\n).add_to(map1)\n\ngdf.explore(\n    \"granule\",\n    categorical=True,\n    tooltip=[\n        \"granule\",\n        \"datetime\",\n        \"s2:nodata_pixel_percentage\",\n        \"eo:cloud_cover\",\n    ],\n    popup=True,\n    style_kwds=dict(fillOpacity=0.1, width=2),\n    name=\"STAC\",\n    m=map1,\n)\n\nmap1.fit_bounds(bounds=convert_bounds(gdf.unary_union.bounds))\ndisplay(fig)\n\n/var/folders/1s/21_zf6j56vs_t0j6klrw2znm0000gn/T/ipykernel_48557/1135620604.py:27: DeprecationWarning: The 'unary_union' attribute is deprecated, use the 'union_all()' method instead.\n  map1.fit_bounds(bounds=convert_bounds(gdf.unary_union.bounds))",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#construct-dask-dataset",
+    "href": "tutorials/stac/stac_load_e84_aws.html#construct-dask-dataset",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Construct Dask Dataset",
+    "text": "Construct Dask Dataset\nNote that even though there are 9 STAC Items on input, there is only one timeslice on output. This is because of groupby=\"solar_day\". With that setting stac_load will place all items that occured on the same day (as adjusted for the timezone) into one image plane.\n\n# Since we will plot it on a map we need to use `EPSG:3857` projection\ncrs = \"epsg:3857\"\nzoom = 2**5  # overview level 5\n\nxx = stac_load(\n    items,\n    bands=(\"red\", \"green\", \"blue\"),\n    crs=crs,\n    resolution=10 * zoom,\n    chunks={},  # &lt;-- use Dask\n    groupby=\"solar_day\",\n    stac_cfg=cfg,\n)\ndisplay(xx)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n&lt;xarray.Dataset&gt; Size: 7MB\nDimensions:      (y: 1101, x: 1087, time: 1)\nCoordinates:\n  * y            (y) float64 9kB -2.797e+06 -2.798e+06 ... -3.149e+06 -3.149e+06\n  * x            (x) float64 9kB 1.247e+07 1.247e+07 ... 1.282e+07 1.282e+07\n    spatial_ref  int32 4B 3857\n  * time         (time) datetime64[ns] 8B 2021-09-16T02:34:44.451000\nData variables:\n    red          (time, y, x) uint16 2MB dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;\n    green        (time, y, x) uint16 2MB dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;\n    blue         (time, y, x) uint16 2MB dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;xarray.DatasetDimensions:y: 1101x: 1087time: 1Coordinates: (4)y(y)float64-2.797e+06 ... -3.149e+06units :metreresolution :-320.0crs :EPSG:3857array([-2797280., -2797600., -2797920., ..., -3148640., -3148960., -3149280.],\n      shape=(1101,))x(x)float641.247e+07 1.247e+07 ... 1.282e+07units :metreresolution :320.0crs :EPSG:3857array([12468000., 12468320., 12468640., ..., 12814880., 12815200., 12815520.],\n      shape=(1087,))spatial_ref()int323857spatial_ref :PROJCRS[\"WGS 84 / Pseudo-Mercator\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"Popular Visualisation Pseudo-Mercator\",METHOD[\"Popular Visualisation Pseudo Mercator\",ID[\"EPSG\",1024]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Web mapping and visualisation.\"],AREA[\"World between 85.06°S and 85.06°N.\"],BBOX[-85.06,-180,85.06,180]],ID[\"EPSG\",3857]]crs_wkt :PROJCRS[\"WGS 84 / Pseudo-Mercator\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"Popular Visualisation Pseudo-Mercator\",METHOD[\"Popular Visualisation Pseudo Mercator\",ID[\"EPSG\",1024]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Web mapping and visualisation.\"],AREA[\"World between 85.06°S and 85.06°N.\"],BBOX[-85.06,-180,85.06,180]],ID[\"EPSG\",3857]]GeoTransform :12467840 320 0 -2797120 0 -320array(3857, dtype=int32)time(time)datetime64[ns]2021-09-16T02:34:44.451000array(['2021-09-16T02:34:44.451000000'], dtype='datetime64[ns]')Data variables: (3)red(time, y, x)uint16dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;nodata :0\n\n\n\n\n\n\n\n\n\n\n\nArray\nChunk\n\n\n\n\nBytes\n2.28 MiB\n2.28 MiB\n\n\nShape\n(1, 1101, 1087)\n(1, 1101, 1087)\n\n\nDask graph\n1 chunks in 3 graph layers\n\n\nData type\nuint16 numpy.ndarray\n\n\n\n\n                         1087 1101 1\n\n\n\n\ngreen(time, y, x)uint16dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;nodata :0\n\n\n\n\n\n\n\n\n\n\n\nArray\nChunk\n\n\n\n\nBytes\n2.28 MiB\n2.28 MiB\n\n\nShape\n(1, 1101, 1087)\n(1, 1101, 1087)\n\n\nDask graph\n1 chunks in 3 graph layers\n\n\nData type\nuint16 numpy.ndarray\n\n\n\n\n                         1087 1101 1\n\n\n\n\nblue(time, y, x)uint16dask.array&lt;chunksize=(1, 1101, 1087), meta=np.ndarray&gt;nodata :0\n\n\n\n\n\n\n\n\n\n\n\nArray\nChunk\n\n\n\n\nBytes\n2.28 MiB\n2.28 MiB\n\n\nShape\n(1, 1101, 1087)\n(1, 1101, 1087)\n\n\nDask graph\n1 chunks in 3 graph layers\n\n\nData type\nuint16 numpy.ndarray\n\n\n\n\n                         1087 1101 1\n\n\n\n\nIndexes: (3)yPandasIndexPandasIndex(Index([-2797280.0, -2797600.0, -2797920.0, -2798240.0, -2798560.0, -2798880.0,\n       -2799200.0, -2799520.0, -2799840.0, -2800160.0,\n       ...\n       -3146400.0, -3146720.0, -3147040.0, -3147360.0, -3147680.0, -3148000.0,\n       -3148320.0, -3148640.0, -3148960.0, -3149280.0],\n      dtype='float64', name='y', length=1101))xPandasIndexPandasIndex(Index([12468000.0, 12468320.0, 12468640.0, 12468960.0, 12469280.0, 12469600.0,\n       12469920.0, 12470240.0, 12470560.0, 12470880.0,\n       ...\n       12812640.0, 12812960.0, 12813280.0, 12813600.0, 12813920.0, 12814240.0,\n       12814560.0, 12814880.0, 12815200.0, 12815520.0],\n      dtype='float64', name='x', length=1087))timePandasIndexPandasIndex(DatetimeIndex(['2021-09-16 02:34:44.451000'], dtype='datetime64[ns]', name='time', freq=None))Attributes: (0)",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#load-data-and-convert-to-rgba",
+    "href": "tutorials/stac/stac_load_e84_aws.html#load-data-and-convert-to-rgba",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Load data and convert to RGBA",
+    "text": "Load data and convert to RGBA\n\n%%time\nrgba = to_rgba(xx, clamp=(1, 3000))\n_rgba = rgba.compute()\n\nCPU times: user 258 ms, sys: 105 ms, total: 363 ms\nWall time: 9.13 s",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#display-image-on-a-map",
+    "href": "tutorials/stac/stac_load_e84_aws.html#display-image-on-a-map",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Display Image on a map",
+    "text": "Display Image on a map\n\nmap2 = folium.Map()\n\nfolium.GeoJson(\n    shapely.geometry.box(*bbox),\n    style_function=lambda x: dict(fill=False, weight=1, opacity=0.7, color=\"olive\"),\n    name=\"Query\",\n).add_to(map2)\n\ngdf.explore(\n    \"granule\",\n    categorical=True,\n    tooltip=[\n        \"granule\",\n        \"datetime\",\n        \"s2:nodata_pixel_percentage\",\n        \"eo:cloud_cover\",\n    ],\n    popup=True,\n    style_kwds=dict(fillOpacity=0.1, width=2),\n    name=\"STAC\",\n    m=map2,\n)\n\n\n# Image bounds are specified in Lat/Lon order with Lat axis inversed\nimage_bounds = convert_bounds(_rgba.geobox.geographic_extent.boundingbox, invert_y=True)\nimg_ovr = folium.raster_layers.ImageOverlay(\n    _rgba.isel(time=0).data, bounds=image_bounds, name=\"Image\"\n)\nimg_ovr.add_to(map2)\nmap2.fit_bounds(bounds=image_bounds)\n\nfolium.LayerControl().add_to(map2)\nfolium.plugins.Fullscreen().add_to(map2)\nmap2\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "tutorials/stac/stac_load_e84_aws.html#load-with-bounding-box",
+    "href": "tutorials/stac/stac_load_e84_aws.html#load-with-bounding-box",
+    "title": "Access Sentinel 2 Data from AWS",
+    "section": "Load with bounding box",
+    "text": "Load with bounding box\nAs you can see stac_load returned all the data covered by STAC items returned from the query. This happens by default as stac_load has no way of knowing what your query was. But it is possible to control what region is loaded. There are several mechanisms available, but probably simplest one is to use bbox= parameter (compatible with stac_client).\nLet’s load a small region at native resolution to demonstrate.\n\nr = 6.5 * km2deg\nsmall_bbox = (x - r, y - r, x + r, y + r)\n\nyy = stac_load(\n    items,\n    bands=(\"red\", \"green\", \"blue\"),\n    crs=crs,\n    resolution=10,\n    chunks={},  # &lt;-- use Dask\n    groupby=\"solar_day\",\n    stac_cfg=cfg,\n    bbox=small_bbox,\n)\nim_small = to_rgba(yy, clamp=(1, 3000)).compute()\n\n\nimg_zoomed_in = odc.ui.mk_data_uri(\n    odc.ui.to_jpeg_data(im_small.isel(time=0).data, quality=80), \"image/jpeg\"\n)\nprint(f\"Image url: {img_zoomed_in[:64]}...\")\n\nImage url: data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQOD...\n\n\n\nHTML(\n    data=f\"\"\"\n&lt;style&gt; .img-two-column{{\n  width: 50%;\n  float: left;\n}}&lt;/style&gt;\n&lt;img src=\"{img_zoomed_in}\" alt=\"Sentinel-2 Zoom in\" class=\"img-two-column\"&gt;\n&lt;img src=\"{img_ovr.url}\" alt=\"Sentinel-2 Mosaic\" class=\"img-two-column\"&gt;\n\"\"\"\n)",
+    "crumbs": [
+      "Home",
+      "Tutorials",
+      "AWS"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAC Onboarding Tutorials",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
