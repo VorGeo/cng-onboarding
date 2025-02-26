@@ -8,12 +8,17 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Tutorials"
+        contents:
+          - text: "AWS"
+            href: tutorials/stac/stac_load_e84_aws.html
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-
