@@ -1,2 +1,9 @@
 /.quarto/
 _site/
+*-checkpoint.ipynb
+
+# pixi environments
+.pixi
+*.egg-info
+
+.vscode/settings.json
