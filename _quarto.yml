@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "STAC Onboarding Tutorials"
+  title: "CNG Onboarding Tutorials"
   navbar:
     left:
       - href: index.qmd
