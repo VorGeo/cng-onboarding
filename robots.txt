@@ -1,1 +1,1 @@
-Sitemap: https://VorGeo.github.io/stac-onboarding/sitemap.xml
+Sitemap: https://VorGeo.github.io/cng-onboarding/sitemap.xml
