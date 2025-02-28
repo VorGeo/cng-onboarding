@@ -15,7 +15,9 @@ website:
       - text: "Tutorials"
         contents:
           - text: "STAC AWS"
-            href: tutorials/stac/stac_load_e84_aws.html
+            href: tutorials/stac/e84_aws
+          - text: "STAC MSPC"
+            href: tutorials/stac/mspc_stac   
 
 format:
   html:
