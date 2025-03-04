@@ -19,11 +19,13 @@ platforms = ["osx-arm64"]
 
 [tool.pixi.pypi-dependencies]
 stac-onboarding = { path = ".", editable = true }
+xarray = { version = "==2025.1.2", extras = ["io"] }
 
 [tool.pixi.tasks]
 
 [tool.pixi.dependencies]
 python = "==3.12"
+netcdf4 = ">=1.7.2,<2"
 jupyter = ">=1.1.1,<2"
 pystac-client = ">=0.8.6,<0.9"
 geopandas = ">=1.0.1,<2"
@@ -31,6 +33,7 @@ rich = ">=13.9.4,<14"
 planetary-computer = ">=1.0.0,<2"
 rioxarray = ">=0.18.2,<0.19"
 stackstac = ">=0.5.1,<0.6"
+rasterio = ">=1.4.3,<2"
 requests = ">=2.32.3,<3"
 aiohttp = ">=3.11.13,<4"
 zarr = ">=3.0.4,<4"
