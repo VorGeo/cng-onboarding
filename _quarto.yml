@@ -3,6 +3,9 @@ project:
 
 website:
   title: "CNG Onboarding Tutorials"
+  repo-url: https://github.com/VorGeo/cng-onboarding
+  repo-actions: [edit, source, issue]
+  reader-mode: true
   navbar:
     left:
       - href: index.qmd
@@ -21,7 +24,9 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme:  # pandoc, default, flatly, darkly, sketchy, sandstone, cyborg, zephyr
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
 
