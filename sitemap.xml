@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/index.html</loc>
-    <lastmod>2025-03-05T01:56:55.632Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/about.html</loc>
-    <lastmod>2025-03-05T01:56:55.589Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
-    <lastmod>2025-03-05T01:56:55.589Z</lastmod>
+    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws_qmd/index.html</loc>
+    <lastmod>2025-03-05T20:57:32.659Z</lastmod>
   </url>
   <url>
     <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/mspc_stac/index.html</loc>
-    <lastmod>2025-03-05T01:56:55.637Z</lastmod>
+    <lastmod>2025-03-05T20:57:32.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
+    <lastmod>2025-03-05T20:57:32.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/about.html</loc>
+    <lastmod>2025-03-05T20:57:32.624Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/index.html</loc>
+    <lastmod>2025-03-05T20:57:32.658Z</lastmod>
   </url>
 </urlset>
