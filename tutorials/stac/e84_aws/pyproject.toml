@@ -15,7 +15,7 @@ packages = ["e84_aws"]
 
 [tool.pixi.project]
 channels = ["conda-forge"]
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
 
 [tool.pixi.pypi-dependencies]
 e84_aws = { path = ".", editable = true }
@@ -34,3 +34,4 @@ odc-algo = ">=0.2.3,<0.3"
 pystac-client = ">=0.8.6,<0.9"
 odc-stac = ">=0.3.11,<0.4"
 yaml = ">=0.2.5,<0.3"
+ipykernel = ">=6.29.5,<7"

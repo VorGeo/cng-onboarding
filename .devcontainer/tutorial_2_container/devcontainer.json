@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
 	"name": "Tutorial 2",
-	"dockerComposeFile": ["docker-compose.codespaces.yml"],
+	"dockerComposeFile": ["../../docker-compose.yml", "docker-compose.codespaces.yml"],
 	"service": "tutorial-2-service",
   "shutdownAction": "none",
   "workspaceFolder": "/workspace/tutorials/stac/mspc_stac",
@@ -11,7 +11,7 @@
 	// "forwardPorts": [],
 
 	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
-	"postCreateCommand": "../../.devcontainer/tutorial_2_container/postCreateCommand.sh",
+	"postCreateCommand": "../../../.devcontainer/tutorial_2_container/postCreateCommand.sh",
 
 	// Configure tool-specific properties.
   "customizations": {
@@ -27,3 +27,5 @@
 	// "remoteUser": "devcontainer"
 }
 
+// [1670 ms] Start: Run in container: /bin/sh -c ../../.devcontainer/tutorial_2_container/postCreateCommand.sh
+// OCI runtime exec failed: exec failed: unable to start container process: chdir to cwd ("/workspace/tutorials/stac/mspc_stac") set in config.json failed: no such file or directory: unknown
