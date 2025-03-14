@@ -4,7 +4,7 @@ project:
 website:
   title: "CNG Onboarding Tutorials"
   repo-url: https://github.com/VorGeo/cng-onboarding
-  repo-actions: [edit, source, issue]
+  repo-actions: [source, issue]
   reader-mode: true
   navbar:
     left:
