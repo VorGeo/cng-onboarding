@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Access Sentinel 2 Data from AWS – CNG Onboarding Tutorials</title>
+<title>index – CNG Onboarding Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Access Sentinel 2 Data from AWS</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -205,7 +205,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#start-dask-client" id="toc-start-dask-client" class="nav-link active" data-scroll-target="#start-dask-client">Start Dask Client</a></li>
+  <li><a href="#access-sentinel-2-data-from-aws" id="toc-access-sentinel-2-data-from-aws" class="nav-link active" data-scroll-target="#access-sentinel-2-data-from-aws">Access Sentinel 2 Data from AWS</a>
+  <ul class="collapse">
+  <li><a href="#start-dask-client" id="toc-start-dask-client" class="nav-link" data-scroll-target="#start-dask-client">Start Dask Client</a></li>
   <li><a href="#find-stac-items-to-load" id="toc-find-stac-items-to-load" class="nav-link" data-scroll-target="#find-stac-items-to-load">Find STAC Items to Load</a></li>
   <li><a href="#review-query-result" id="toc-review-query-result" class="nav-link" data-scroll-target="#review-query-result">Review Query Result</a></li>
   <li><a href="#plot-stac-items-on-a-map" id="toc-plot-stac-items-on-a-map" class="nav-link" data-scroll-target="#plot-stac-items-on-a-map">Plot STAC Items on a Map</a></li>
@@ -213,31 +215,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load-data-and-convert-to-rgba" id="toc-load-data-and-convert-to-rgba" class="nav-link" data-scroll-target="#load-data-and-convert-to-rgba">Load data and convert to RGBA</a></li>
   <li><a href="#display-image-on-a-map" id="toc-display-image-on-a-map" class="nav-link" data-scroll-target="#display-image-on-a-map">Display Image on a map</a></li>
   <li><a href="#load-with-bounding-box" id="toc-load-with-bounding-box" class="nav-link" data-scroll-target="#load-with-bounding-box">Load with bounding box</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="tutorial_1.ipynb" download="tutorial_1.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Access Sentinel 2 Data from AWS</h1>
+
+
+
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<div class="callout-title-container flex-fill">
+How to run this tutorial
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to run the code in this tutorial, you can either download the notebook to run it on your local computer, or click the button below to run the tutorial in a GitHub Codespace.</p>
+<p><a href="https://github.com/codespaces/new?hide_repo_select=true&amp;skip_quickstart=true&amp;ref=main&amp;repo=939648830&amp;devcontainer=Tutorial+1&amp;devcontainer_path=.devcontainer%2Ftutorial_1_container%2Fdevcontainer.json&amp;geo=UsWest&amp;machine=basicLinux32gb"><img src="https://github.com/codespaces/badge.svg" class="img-fluid"></a></p>
+</div>
+</div>
+<section id="access-sentinel-2-data-from-aws" class="level1">
+<h1>Access Sentinel 2 Data from AWS</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://mybinder.org/v2/gh/opendatacube/odc-stac/develop?labpath=notebooks%2Fstac-load-e84-aws.ipynb"><img src="https://mybinder.org/badge_logo.svg" class="img-fluid figure-img" alt="Binder"></a></p>
@@ -14807,6 +14810,7 @@ iyya3JooVRcmuUQv/9k=
 
 
 </section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -15375,4 +15379,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/tutorials/stac/e84_aws/index.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
