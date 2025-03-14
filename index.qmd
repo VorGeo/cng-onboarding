@@ -2,4 +2,21 @@
 title: "Cloud Native Geospatial (CNG) Onboarding Tutorials"
 ---
 
-TODO... describe the tutorials
+This site includes a collection of tutorials that are designed to help you get started with Cloud Native Geospatial (CNG) technologies. The tutorials are Jupyter Notebooks, stored on GitHub
+
+# Viewing the Tutorials
+
+To view a tutorial, select a page from the left sidebar.
+
+# Executing Code in the Tutorials
+
+The Jupyter Notebook tutorials can be run locally or in the cloud.
+
+# Contributing to the Tutorials
+
+Contributions are welcome!
+(TODO: describe how to contribute)
+
+Sources:
+
+- [STAC Tutorials](https://stacspec.org/en/tutorials/) ([GitHub](https://github.com/radiantearth/stac-site))
