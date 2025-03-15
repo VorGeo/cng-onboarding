@@ -5,4 +5,4 @@ curl -fsSL https://pixi.sh/install.sh | bash
 /home/vscode/.pixi/bin/pixi install
 
 # Install a Jupyter kernel for the devcontainer
-/home/vscode/.pixi/bin/pixi run python -m ipykernel install --user --name=tutorial-1-kernel --display-name 'Tutorial 1 Kernel'
+/home/vscode/.pixi/bin/pixi run python -m ipykernel install --user --name=$SERVICE_NAME --display-name "$CONTAINER_NAME"

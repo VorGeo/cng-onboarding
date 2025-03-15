@@ -7,11 +7,17 @@
   "shutdownAction": "none",
   "workspaceFolder": "/workspace/tutorials/stac/python/python-read-stac",
 
+	// Make the container name and service name available to the container.
+	"containerEnv": {
+		"SERVICE_NAME": "python-stac-service",
+		"CONTAINER_NAME": "Python STAC"
+	},
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	
 	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
-	"postCreateCommand": "/workspace/.devcontainer/python_stac_container/postCreateCommand.sh",
+	"postCreateCommand": "/workspace/.devcontainer/postCreateCommand.sh",
 
 	// Configure tool-specific properties.
   "customizations": {
