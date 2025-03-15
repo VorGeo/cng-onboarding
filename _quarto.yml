@@ -17,10 +17,16 @@ website:
     contents:
       - text: "Tutorials"
         contents:
-          - text: "STAC AWS"
-            href: tutorials/stac/e84_aws
-          - text: "STAC MSPC"
-            href: tutorials/stac/mspc_stac   
+          - section: "Python"
+            contents:
+            - text: "Read STAC"
+              href: tutorials/stac/python/python-read-stac/
+          - section: "Advanced"
+            contents:
+              - text: "STAC AWS"
+                href: tutorials/stac/e84_aws
+              - text: "STAC MSPC"
+                href: tutorials/stac/mspc_stac   
 
 format:
   html:
