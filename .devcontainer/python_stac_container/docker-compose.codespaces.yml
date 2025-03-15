@@ -1,0 +1,8 @@
+services:
+  python-stac-service:
+    # https://github.com/devcontainers/images/tree/main/src/python
+    image: mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity

@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "Python STAC",
+	"dockerComposeFile": ["../../docker-compose.yml", "docker-compose.codespaces.yml"],
+	"service": "python-stac-service",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspace/tutorials/stac/python/python-read-stac",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	
+	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
+	"postCreateCommand": "/workspace/.devcontainer/python_stac_container/postCreateCommand.sh",
+
+	// Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter"
+			]
+    }
+  }
+
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer"
+}

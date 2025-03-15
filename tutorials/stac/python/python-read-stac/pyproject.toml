@@ -24,4 +24,6 @@ stac-onboarding = { path = ".", editable = true }
 
 [tool.pixi.dependencies]
 python = "==3.12"
+ipykernel = ">=6.29.5,<7"
+pystac = ">=1.12.1,<2"
 
