@@ -13,16 +13,19 @@ The tutorials can be viewed at: [vorgeo.github.io/cng-onboarding/](https://vorge
 ### Local Execution (with Pixi)
 
 Requirements:
+
 - Local install of [git](https://git-scm.com/)
 - Local install of [pixi](https://pixi.sh/)
 
 Steps:
+
 1. Clone the repo:  `git clone https://github.com/VorGeo/cng-onboarding.git`
 2. Run the start task to start up JupyterLab:  `pixi run start`
 
 ### Local Execution (with Dev Containers)
 
 Requirements:
+
 - Local install of [git](https://git-scm.com/)
 - Local install of [pixi](https://pixi.sh/)
 - Local install of [VS Code](https://code.visualstudio.com/) with the following extensions: [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
@@ -31,9 +34,11 @@ Requirements:
 ### Cloud Execution (with GitHub Codespaces)
 
 Requirements:
+
 - A GitHub account
 
 Steps:
+
 1. Within the website (https://vorgeo.github.io/cng-onboarding/), open one of the tutorial pages.
 2. Click on the 'Open in GitHub Codespaces' button.
 3. In the "Create codespace" page, modify the selection options as needed and then click "Create codespace".
