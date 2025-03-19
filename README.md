@@ -6,7 +6,8 @@ This repository contains code for creating a website of tutorials about Cloud-Na
 
 ## Viewing
 
-The tutorials can be viewed at: [vorgeo.github.io/cng-onboarding/](https://vorgeo.github.io/cng-onboarding/)
+The tutorials are hosted as static webpages on the website: [vorgeo.github.io/cng-onboarding/](https://vorgeo.github.io/cng-onboarding/)
+To browse through the available tutorials, use the navigation menu on the left side.
 
 ## Executing
 
@@ -50,7 +51,7 @@ Steps:
 
 *TODO... describe how to contribute changes to the tutorials.*
 
-# About
+# Colophon
 
 The website makes use of several technologies, including:
 
