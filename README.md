@@ -9,7 +9,7 @@ This repository contains code for creating a website of tutorials about Cloud-Na
 The tutorials are hosted as static webpages on the website: [vorgeo.github.io/cng-onboarding/](https://vorgeo.github.io/cng-onboarding/)
 To browse through the available tutorials, use the navigation menu on the left side.
 
-## Executing
+## Executing the Code
 
 ### Local Execution (with Pixi)
 
@@ -21,7 +21,10 @@ Requirements:
 Steps:
 
 1. Clone the repo:  `git clone https://github.com/VorGeo/cng-onboarding.git`
-2. Run the start task to start up JupyterLab:  `pixi run start`
+2. Navigate to a tutorial directory. For example:  `cd tutorials/stac/python/python-read-stac/`
+3. Run the start task to start up JupyterLab:  `pixi run start`
+    - This will install the tutorial's code dependencies, start a JupyterLab server, and open up the tutorial in a browser window.
+
 
 ### Local Execution (with Dev Containers)
 
@@ -31,6 +34,13 @@ Requirements:
 - Local install of [pixi](https://pixi.sh/)
 - Local install of [VS Code](https://code.visualstudio.com/) with the following extensions: [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
+Steps:
+
+1. Clone the repo:  `git clone https://github.com/VorGeo/cng-onboarding.git`
+2. Open the cloned repo in VS Code.
+3. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and select "Dev Containers: Rebuild and Reopen in Container".
+    - Select the Container for the tutorial you want to run.
+4. Once the Container is built, you can open up the notebook (index.ipynb) from the Explorer menu.
 
 ### Cloud Execution (with GitHub Codespaces)
 
