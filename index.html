@@ -248,17 +248,43 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="executing">Executing</h2>
 <section id="local-execution-with-pixi" class="level3">
 <h3 class="anchored" data-anchor-id="local-execution-with-pixi">Local Execution (with Pixi)</h3>
-<p>Requirements: - Local install of <a href="https://git-scm.com/">git</a> - Local install of <a href="https://pixi.sh/">pixi</a></p>
-<p>Steps: 1. Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code> 2. Run the start task to start up JupyterLab: <code>pixi run start</code></p>
+<p>Requirements:</p>
+<ul>
+<li>Local install of <a href="https://git-scm.com/">git</a></li>
+<li>Local install of <a href="https://pixi.sh/">pixi</a></li>
+</ul>
+<p>Steps:</p>
+<ol type="1">
+<li>Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code></li>
+<li>Run the start task to start up JupyterLab: <code>pixi run start</code></li>
+</ol>
 </section>
 <section id="local-execution-with-dev-containers" class="level3">
 <h3 class="anchored" data-anchor-id="local-execution-with-dev-containers">Local Execution (with Dev Containers)</h3>
-<p>Requirements: - Local install of <a href="https://git-scm.com/">git</a> - Local install of <a href="https://pixi.sh/">pixi</a> - Local install of <a href="https://code.visualstudio.com/">VS Code</a> with the following extensions: <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></p>
+<p>Requirements:</p>
+<ul>
+<li>Local install of <a href="https://git-scm.com/">git</a></li>
+<li>Local install of <a href="https://pixi.sh/">pixi</a></li>
+<li>Local install of <a href="https://code.visualstudio.com/">VS Code</a> with the following extensions: <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></li>
+</ul>
 </section>
 <section id="cloud-execution-with-github-codespaces" class="level3">
 <h3 class="anchored" data-anchor-id="cloud-execution-with-github-codespaces">Cloud Execution (with GitHub Codespaces)</h3>
-<p>Requirements: - A GitHub account</p>
-<p>Steps: 1. Within the website (https://vorgeo.github.io/cng-onboarding/), open one of the tutorial pages. 2. Click on the ‘Open in GitHub Codespaces’ button. 3. In the “Create codespace” page, modify the selection options as needed and then click “Create codespace”. 4. A new Codespace will be started. It can take up to 5 minutes for the codespace to be configured, at which point you will see the message “Finished configuring codespace.” in the terminal tab. 5. Once the codespace is ready, you can interact with the tutorial in the same way as you would in a local environment. Open up the notebook (index.ipynb) and start executing the cells. - You may need to specify the kernel to use for the notebook. To do this, click on the kernel name in the top right corner of the notebook and select the default kernel (e.g., <code>.pixi/envs/defaul/bin/python</code>).</p>
+<p>Requirements:</p>
+<ul>
+<li>A GitHub account</li>
+</ul>
+<p>Steps:</p>
+<ol type="1">
+<li>Within the website (https://vorgeo.github.io/cng-onboarding/), open one of the tutorial pages.</li>
+<li>Click on the ‘Open in GitHub Codespaces’ button.</li>
+<li>In the “Create codespace” page, modify the selection options as needed and then click “Create codespace”.</li>
+<li>A new Codespace will be started. It can take up to 5 minutes for the codespace to be configured, at which point you will see the message “Finished configuring codespace.” in the terminal tab.</li>
+<li>Once the codespace is ready, you can interact with the tutorial in the same way as you would in a local environment. Open up the notebook (index.ipynb) and start executing the cells.
+<ul>
+<li>You may need to specify the kernel to use for the notebook. To do this, click on the kernel name in the top right corner of the notebook and select the default kernel (e.g., <code>.pixi/envs/defaul/bin/python</code>).</li>
+</ul></li>
+</ol>
 </section>
 </section>
 <section id="contributing" class="level2">
