@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws_qmd/index.html</loc>
-    <lastmod>2025-03-19T22:34:47.826Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/index.html</loc>
-    <lastmod>2025-03-19T22:34:47.790Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/about.html</loc>
-    <lastmod>2025-03-19T22:34:47.757Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
-    <lastmod>2025-03-19T22:34:47.757Z</lastmod>
+    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/python/python-read-stac/index.html</loc>
+    <lastmod>2025-03-19T22:38:32.108Z</lastmod>
   </url>
   <url>
     <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/mspc_stac/index.html</loc>
-    <lastmod>2025-03-19T22:34:47.826Z</lastmod>
+    <lastmod>2025-03-19T22:38:32.107Z</lastmod>
   </url>
   <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/python/python-read-stac/index.html</loc>
-    <lastmod>2025-03-19T22:34:47.828Z</lastmod>
+    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
+    <lastmod>2025-03-19T22:38:32.071Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/about.html</loc>
+    <lastmod>2025-03-19T22:38:32.071Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/index.html</loc>
+    <lastmod>2025-03-19T22:38:32.104Z</lastmod>
   </url>
 </urlset>
