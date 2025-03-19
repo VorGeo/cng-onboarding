@@ -2,29 +2,4 @@
 title: "Cloud Native Geospatial (CNG) Onboarding Tutorials"
 ---
 
-This site includes a collection of tutorials that are designed to help you get started with Cloud Native Geospatial (CNG) technologies. The tutorials are Jupyter Notebooks, stored on GitHub
-
-# Viewing the Tutorials
-
-To view a tutorial, select a page from the left sidebar.
-
-# Executing Code in the Tutorials
-
-The Jupyter Notebook tutorials can be run locally or in the cloud.
-
-## Run locally (with Pixi)
-
-Requirements: git, pixi
-
-1. Install Pixi: https://pixi.sh/latest/#installation
-2. Clone the repo: `git clone https://github.com/VorGeo/cng-onboarding.git`
-3. Run the start task: `pixi run start`
-
-# Contributing to the Tutorials
-
-Contributions are welcome!
-(TODO: describe how to contribute)
-
-Sources:
-
-- [STAC Tutorials](https://stacspec.org/en/tutorials/) ([GitHub](https://github.com/radiantearth/stac-site))
+{{< include README.md >}}
