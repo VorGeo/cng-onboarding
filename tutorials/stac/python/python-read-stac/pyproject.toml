@@ -2,7 +2,7 @@
 authors = [{name = "Tyler Erickson", email = "tyler@vorgeo.com"}]
 dependencies = []
 description = "Python tutorial for reading STAC"
-name = "stac-onboarding"
+name = "python-read-stac"
 requires-python = ">= 3.11"
 version = "0.1.0"
 
@@ -18,12 +18,12 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
 
 [tool.pixi.pypi-dependencies]
-stac-onboarding = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+start = "jupyter lab"
 
 [tool.pixi.dependencies]
 python = "==3.12"
 ipykernel = ">=6.29.5,<7"
 pystac = ">=1.12.1,<2"
-
+jupyter = ">=1.1.1,<2"

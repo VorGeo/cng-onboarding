@@ -18,9 +18,9 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
 
 [tool.pixi.pypi-dependencies]
-e84_aws = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+start = "jupyter lab"
 
 [tool.pixi.dependencies]
 python = "==3.12"
