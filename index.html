@@ -200,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#interacting-with-the-tutorials" id="toc-interacting-with-the-tutorials" class="nav-link" data-scroll-target="#interacting-with-the-tutorials">Interacting with the tutorials</a>
   <ul class="collapse">
   <li><a href="#viewing" id="toc-viewing" class="nav-link" data-scroll-target="#viewing">Viewing</a></li>
-  <li><a href="#executing" id="toc-executing" class="nav-link" data-scroll-target="#executing">Executing</a>
+  <li><a href="#executing-the-code" id="toc-executing-the-code" class="nav-link" data-scroll-target="#executing-the-code">Executing the Code</a>
   <ul class="collapse">
   <li><a href="#local-execution-with-pixi" id="toc-local-execution-with-pixi" class="nav-link" data-scroll-target="#local-execution-with-pixi">Local Execution (with Pixi)</a></li>
   <li><a href="#local-execution-with-dev-containers" id="toc-local-execution-with-dev-containers" class="nav-link" data-scroll-target="#local-execution-with-dev-containers">Local Execution (with Dev Containers)</a></li>
@@ -244,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="viewing">Viewing</h2>
 <p>The tutorials are hosted as static webpages on the website: <a href="https://vorgeo.github.io/cng-onboarding/">vorgeo.github.io/cng-onboarding/</a> To browse through the available tutorials, use the navigation menu on the left side.</p>
 </section>
-<section id="executing" class="level2">
-<h2 class="anchored" data-anchor-id="executing">Executing</h2>
+<section id="executing-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="executing-the-code">Executing the Code</h2>
 <section id="local-execution-with-pixi" class="level3">
 <h3 class="anchored" data-anchor-id="local-execution-with-pixi">Local Execution (with Pixi)</h3>
 <p>Requirements:</p>
@@ -256,7 +256,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Steps:</p>
 <ol type="1">
 <li>Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code></li>
-<li>Run the start task to start up JupyterLab: <code>pixi run start</code></li>
+<li>Navigate to a tutorial directory. For example: <code>cd tutorials/stac/python/python-read-stac/</code></li>
+<li>Run the start task to start up JupyterLab: <code>pixi run start</code>
+<ul>
+<li>This will install the tutorial’s code dependencies, start a JupyterLab server, and open up the tutorial in a browser window.</li>
+</ul></li>
 </ol>
 </section>
 <section id="local-execution-with-dev-containers" class="level3">
@@ -267,6 +271,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Local install of <a href="https://pixi.sh/">pixi</a></li>
 <li>Local install of <a href="https://code.visualstudio.com/">VS Code</a> with the following extensions: <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></li>
 </ul>
+<p>Steps:</p>
+<ol type="1">
+<li>Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code></li>
+<li>Open the cloned repo in VS Code.</li>
+<li>Open the command palette (<code>Ctrl+Shift+P</code> or <code>Cmd+Shift+P</code> on Mac) and select “Dev Containers: Rebuild and Reopen in Container”.
+<ul>
+<li>Select the Container for the tutorial you want to run.</li>
+</ul></li>
+<li>Once the Container is built, you can open up the notebook (index.ipynb) from the Explorer menu.</li>
+</ol>
 </section>
 <section id="cloud-execution-with-github-codespaces" class="level3">
 <h3 class="anchored" data-anchor-id="cloud-execution-with-github-codespaces">Cloud Execution (with GitHub Codespaces)</h3>
