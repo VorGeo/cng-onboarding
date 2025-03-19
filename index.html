@@ -197,7 +197,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#viewing-the-tutorials" id="toc-viewing-the-tutorials" class="nav-link active" data-scroll-target="#viewing-the-tutorials">Viewing the Tutorials</a></li>
-  <li><a href="#executing-code-in-the-tutorials" id="toc-executing-code-in-the-tutorials" class="nav-link" data-scroll-target="#executing-code-in-the-tutorials">Executing Code in the Tutorials</a></li>
+  <li><a href="#executing-code-in-the-tutorials" id="toc-executing-code-in-the-tutorials" class="nav-link" data-scroll-target="#executing-code-in-the-tutorials">Executing Code in the Tutorials</a>
+  <ul class="collapse">
+  <li><a href="#run-locally-with-pixi" id="toc-run-locally-with-pixi" class="nav-link" data-scroll-target="#run-locally-with-pixi">Run locally (with Pixi)</a></li>
+  </ul></li>
   <li><a href="#contributing-to-the-tutorials" id="toc-contributing-to-the-tutorials" class="nav-link" data-scroll-target="#contributing-to-the-tutorials">Contributing to the Tutorials</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -232,6 +235,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="executing-code-in-the-tutorials" class="level1">
 <h1>Executing Code in the Tutorials</h1>
 <p>The Jupyter Notebook tutorials can be run locally or in the cloud.</p>
+<section id="run-locally-with-pixi" class="level2">
+<h2 class="anchored" data-anchor-id="run-locally-with-pixi">Run locally (with Pixi)</h2>
+<p>Requirements: git, pixi</p>
+<ol type="1">
+<li>Install Pixi: https://pixi.sh/latest/#installation</li>
+<li>Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code></li>
+<li>Run the start task: <code>pixi run start</code></li>
+</ol>
+</section>
 </section>
 <section id="contributing-to-the-tutorials" class="level1">
 <h1>Contributing to the Tutorials</h1>

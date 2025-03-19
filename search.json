@@ -137,7 +137,14 @@
     "href": "index.html",
     "title": "Cloud Native Geospatial (CNG) Onboarding Tutorials",
     "section": "",
-    "text": "This site includes a collection of tutorials that are designed to help you get started with Cloud Native Geospatial (CNG) technologies. The tutorials are Jupyter Notebooks, stored on GitHub\n\nViewing the Tutorials\nTo view a tutorial, select a page from the left sidebar.\n\n\nExecuting Code in the Tutorials\nThe Jupyter Notebook tutorials can be run locally or in the cloud.\n\n\nContributing to the Tutorials\nContributions are welcome! (TODO: describe how to contribute)\nSources:\n\nSTAC Tutorials (GitHub)"
+    "text": "This site includes a collection of tutorials that are designed to help you get started with Cloud Native Geospatial (CNG) technologies. The tutorials are Jupyter Notebooks, stored on GitHub"
+  },
+  {
+    "objectID": "index.html#run-locally-with-pixi",
+    "href": "index.html#run-locally-with-pixi",
+    "title": "Cloud Native Geospatial (CNG) Onboarding Tutorials",
+    "section": "Run locally (with Pixi)",
+    "text": "Run locally (with Pixi)\nRequirements: git, pixi\n\nInstall Pixi: https://pixi.sh/latest/#installation\nClone the repo: git clone https://github.com/VorGeo/cng-onboarding.git\nRun the start task: pixi run start"
   },
   {
     "objectID": "tutorials/stac/mspc_stac/index.html",
