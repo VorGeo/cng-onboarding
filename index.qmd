@@ -1,5 +1,5 @@
 ---
-title: "Cloud Native Geospatial (CNG) Onboarding Tutorials"
+title: "Cloud Native Geospatial (CNG) Tutorials"
 ---
 
 {{< include README.md >}}
