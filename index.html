@@ -196,12 +196,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#viewing-the-tutorials" id="toc-viewing-the-tutorials" class="nav-link active" data-scroll-target="#viewing-the-tutorials">Viewing the Tutorials</a></li>
-  <li><a href="#executing-code-in-the-tutorials" id="toc-executing-code-in-the-tutorials" class="nav-link" data-scroll-target="#executing-code-in-the-tutorials">Executing Code in the Tutorials</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#interacting-with-the-tutorials" id="toc-interacting-with-the-tutorials" class="nav-link" data-scroll-target="#interacting-with-the-tutorials">Interacting with the tutorials</a>
   <ul class="collapse">
-  <li><a href="#run-locally-with-pixi" id="toc-run-locally-with-pixi" class="nav-link" data-scroll-target="#run-locally-with-pixi">Run locally (with Pixi)</a></li>
+  <li><a href="#viewing" id="toc-viewing" class="nav-link" data-scroll-target="#viewing">Viewing</a></li>
+  <li><a href="#executing" id="toc-executing" class="nav-link" data-scroll-target="#executing">Executing</a>
+  <ul class="collapse">
+  <li><a href="#local-execution-with-pixi" id="toc-local-execution-with-pixi" class="nav-link" data-scroll-target="#local-execution-with-pixi">Local Execution (with Pixi)</a></li>
+  <li><a href="#local-execution-with-dev-containers" id="toc-local-execution-with-dev-containers" class="nav-link" data-scroll-target="#local-execution-with-dev-containers">Local Execution (with Dev Containers)</a></li>
+  <li><a href="#cloud-execution-with-github-codespaces" id="toc-cloud-execution-with-github-codespaces" class="nav-link" data-scroll-target="#cloud-execution-with-github-codespaces">Cloud Execution (with GitHub Codespaces)</a></li>
   </ul></li>
-  <li><a href="#contributing-to-the-tutorials" id="toc-contributing-to-the-tutorials" class="nav-link" data-scroll-target="#contributing-to-the-tutorials">Contributing to the Tutorials</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
+  </ul></li>
+  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VorGeo/cng-onboarding/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/VorGeo/cng-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -227,31 +234,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This site includes a collection of tutorials that are designed to help you get started with Cloud Native Geospatial (CNG) technologies. The tutorials are Jupyter Notebooks, stored on GitHub</p>
-<section id="viewing-the-tutorials" class="level1">
-<h1>Viewing the Tutorials</h1>
-<p>To view a tutorial, select a page from the left sidebar.</p>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>This repository contains code for creating a website of tutorials about Cloud-Native Geospatial (CNG) technologies.</p>
 </section>
-<section id="executing-code-in-the-tutorials" class="level1">
-<h1>Executing Code in the Tutorials</h1>
-<p>The Jupyter Notebook tutorials can be run locally or in the cloud.</p>
-<section id="run-locally-with-pixi" class="level2">
-<h2 class="anchored" data-anchor-id="run-locally-with-pixi">Run locally (with Pixi)</h2>
-<p>Requirements: git, pixi</p>
-<ol type="1">
-<li>Install Pixi: https://pixi.sh/latest/#installation</li>
-<li>Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code></li>
-<li>Run the start task: <code>pixi run start</code></li>
-</ol>
+<section id="interacting-with-the-tutorials" class="level1">
+<h1>Interacting with the tutorials</h1>
+<section id="viewing" class="level2">
+<h2 class="anchored" data-anchor-id="viewing">Viewing</h2>
+<p>The tutorials can be viewed at: <a href="https://vorgeo.github.io/cng-onboarding/">vorgeo.github.io/cng-onboarding/</a></p>
+</section>
+<section id="executing" class="level2">
+<h2 class="anchored" data-anchor-id="executing">Executing</h2>
+<section id="local-execution-with-pixi" class="level3">
+<h3 class="anchored" data-anchor-id="local-execution-with-pixi">Local Execution (with Pixi)</h3>
+<p>Requirements: - Local install of <a href="https://git-scm.com/">git</a> - Local install of <a href="https://pixi.sh/">pixi</a></p>
+<p>Steps: 1. Clone the repo: <code>git clone https://github.com/VorGeo/cng-onboarding.git</code> 2. Run the start task to start up JupyterLab: <code>pixi run start</code></p>
+</section>
+<section id="local-execution-with-dev-containers" class="level3">
+<h3 class="anchored" data-anchor-id="local-execution-with-dev-containers">Local Execution (with Dev Containers)</h3>
+<p>Requirements: - Local install of <a href="https://git-scm.com/">git</a> - Local install of <a href="https://pixi.sh/">pixi</a> - Local install of <a href="https://code.visualstudio.com/">VS Code</a> with the following extensions: <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a>, <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></p>
+</section>
+<section id="cloud-execution-with-github-codespaces" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-execution-with-github-codespaces">Cloud Execution (with GitHub Codespaces)</h3>
+<p>Requirements: - A GitHub account</p>
+<p>Steps: 1. Within the website (https://vorgeo.github.io/cng-onboarding/), open one of the tutorial pages. 2. Click on the ‘Open in GitHub Codespaces’ button. 3. In the “Create codespace” page, modify the selection options as needed and then click “Create codespace”. 4. A new Codespace will be started. It can take up to 5 minutes for the codespace to be configured, at which point you will see the message “Finished configuring codespace.” in the terminal tab. 5. Once the codespace is ready, you can interact with the tutorial in the same way as you would in a local environment. Open up the notebook (index.ipynb) and start executing the cells. - You may need to specify the kernel to use for the notebook. To do this, click on the kernel name in the top right corner of the notebook and select the default kernel (e.g., <code>.pixi/envs/defaul/bin/python</code>).</p>
 </section>
 </section>
-<section id="contributing-to-the-tutorials" class="level1">
-<h1>Contributing to the Tutorials</h1>
-<p>Contributions are welcome! (TODO: describe how to contribute)</p>
-<p>Sources:</p>
-<ul>
-<li><a href="https://stacspec.org/en/tutorials/">STAC Tutorials</a> (<a href="https://github.com/radiantearth/stac-site">GitHub</a>)</li>
-</ul>
+<section id="contributing" class="level2">
+<h2 class="anchored" data-anchor-id="contributing">Contributing</h2>
+<p><em>TODO… describe how to contribute changes to the tutorials.</em></p>
+</section>
+</section>
+<section id="about" class="level1">
+<h1>About</h1>
+<p>The website makes use of several technologies, including:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Technology</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://quarto.org/">Quarto</a></td>
+<td>Quarto is used to generate a static HTML website. Quarto configuration is contained within the <code>/_quarto.yml</code> file, and in a raw cell at the start of each tutorial notebook.</td>
+</tr>
+<tr class="even">
+<td><a href="https://pixi.sh/">Pixi</a></td>
+<td>Pixi is used for package management, and is part of the conda ecosystem. Each tutorial defines its own code environment configuration in a <code>pyproject.toml</code> (for Python tutorials) or <code>pixi.toml</code> (for non-Python tutorials) file. Pixi solves for an environment that honors the configuration and stores the result in a <a href="https://pixi.sh/latest/features/lockfile/">pixi.lock</a> file.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/features/actions">GitHub Actions</a></td>
+<td>GitHub Actions are used for continuous integration and deployment. Changes that are commited to main branch trigger rebuilding of the static website. Configuration of the actions can be found in the <code>.github/workflows/</code> folder.</td>
+</tr>
+<tr class="even">
+<td><a href="https://pages.github.com/">GitHub Pages</a></td>
+<td>GitHub Pages is used to host the website.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://containers.dev/">Development Containers</a></td>
+<td>Dev Containers define a full-feature development environment that can be run either locally or in the cloud. Configuration of the dev container can be found in the <code>.devcontainer/</code> folder.</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/features/codespaces">GitHub Codespaces</a></td>
+<td><em>(Optional)</em> GitHub Codespaces can be used for cloud-based development.</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
