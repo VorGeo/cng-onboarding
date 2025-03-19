@@ -21,7 +21,7 @@ platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
 xarray = { version = "==2025.1.2", extras = ["io"] }
 
 [tool.pixi.tasks]
-start = "jupyter lab"
+start = "jupyter lab index.ipynb"
 
 [tool.pixi.dependencies]
 python = "==3.12"
