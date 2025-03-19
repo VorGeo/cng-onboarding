@@ -12,6 +12,14 @@ To view a tutorial, select a page from the left sidebar.
 
 The Jupyter Notebook tutorials can be run locally or in the cloud.
 
+## Run locally (with Pixi)
+
+Requirements: git, pixi
+
+1. Install Pixi: https://pixi.sh/latest/#installation
+2. Clone the repo: `git clone https://github.com/VorGeo/cng-onboarding.git`
+3. Run the start task: `pixi run start`
+
 # Contributing to the Tutorials
 
 Contributions are welcome!
