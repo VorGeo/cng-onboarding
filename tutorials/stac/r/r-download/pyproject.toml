@@ -1,0 +1,19 @@
+[project]
+authors = [{name = "Tyler Erickson", email = "tyler@vorgeo.com"}]
+name = "R-Tutorial-Download"
+requires-python = ">= 3.11"
+version = "0.1.0"
+dependencies = []
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
+
+[tool.pixi.pypi-dependencies]
+
+[tool.pixi.tasks]
+start = "jupyter lab index.ipynb"
+
+[tool.pixi.dependencies]
+python = "==3.11"
+ipykernel = ">=6.29.5,<7"

@@ -1,0 +1,7 @@
+services:
+  tutorial-r-service:
+    image: jupyter/r-notebook
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
