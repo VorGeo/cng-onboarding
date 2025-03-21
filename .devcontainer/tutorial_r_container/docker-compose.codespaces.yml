@@ -1,7 +1,6 @@
 services:
   tutorial-r-service:
-    # image: rocker/r-ver:latest
-    build: .devcontainer/tutorial_r_container/
+    image: rocker/r2u:latest
     volumes:
       # Mount the root folder that contains .git
       - .:/workspace:cached
