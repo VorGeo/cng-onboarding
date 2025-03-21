@@ -1,6 +1,7 @@
 services:
   tutorial-r-service:
-    image: jupyter/r-notebook
+    # image: rocker/r-ver:latest
+    build: .devcontainer/tutorial_r_container/
     volumes:
       # Mount the root folder that contains .git
       - .:/workspace:cached

@@ -13,6 +13,14 @@
 		"SERVICE_NAME": "tutorial-r-service"
 	},
 
+
+	"features": {
+		// See: https://containers.dev/features
+		"ghcr.io/devcontainers-extra/features/curl-apt-get:1": {
+			"version": "1.0.17"
+		}
+	},
+
 	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
 	"postCreateCommand": "/workspace/.devcontainer/postCreateCommands_R.sh",
 
