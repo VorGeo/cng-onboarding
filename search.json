@@ -11,7 +11,7 @@
     "href": "tutorials/stac/python/python-read-stac/index.html#dependencies",
     "title": "Read a STAC Catalog Using PySTAC",
     "section": "Dependencies",
-    "text": "Dependencies\nIf you need to install pystac, uncomment the line below and run this cell.\n\n# ! pip install pystac"
+    "text": "Dependencies\nIf you need to install pystac, uncomment the line below and run this cell.\n\n! pip install pystac\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pystac\n  Downloading pystac-1.12.2-py3-none-any.whl.metadata (4.6 kB)\nCollecting python-dateutil&gt;=2.7.0 (from pystac)\n  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)\nCollecting six&gt;=1.5 (from python-dateutil&gt;=2.7.0-&gt;pystac)\n  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nDownloading pystac-1.12.2-py3-none-any.whl (194 kB)\nDownloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)\nDownloading six-1.17.0-py2.py3-none-any.whl (11 kB)\nInstalling collected packages: six, python-dateutil, pystac\nSuccessfully installed pystac-1.12.2 python-dateutil-2.9.0.post0 six-1.17.0\n\n[notice] A new release of pip is available: 24.3.1 -&gt; 25.0.1\n[notice] To update, run: pip install --upgrade pip"
   },
   {
     "objectID": "tutorials/stac/python/python-read-stac/index.html#stac-catalogs",

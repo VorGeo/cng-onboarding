@@ -278,7 +278,24 @@ How to run this tutorial
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
 <p>If you need to install pystac, uncomment the line below and run this cell.</p>
 <div id="cell-5" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ! pip install pystac</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span> pip install pystac</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Defaulting to user installation because normal site-packages is not writeable
+Collecting pystac
+  Downloading pystac-1.12.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting python-dateutil&gt;=2.7.0 (from pystac)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting six&gt;=1.5 (from python-dateutil&gt;=2.7.0-&gt;pystac)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading pystac-1.12.2-py3-none-any.whl (194 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, python-dateutil, pystac
+Successfully installed pystac-1.12.2 python-dateutil-2.9.0.post0 six-1.17.0
+
+[notice] A new release of pip is available: 24.3.1 -&gt; 25.0.1
+[notice] To update, run: pip install --upgrade pip</code></pre>
+</div>
 </div>
 </section>
 <section id="stac-catalogs" class="level2">
@@ -289,15 +306,15 @@ How to run this tutorial
 <h4 class="anchored" data-anchor-id="import-packages-and-store-data">Import Packages and Store Data</h4>
 <p>To begin, import the packages and PySTAC classes that you need to access data and work with STAC Catalogs in Python.</p>
 <div id="cell-8" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac <span class="im">import</span> Catalog, get_stac_version</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.eo <span class="im">import</span> EOExtension</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.label <span class="im">import</span> LabelExtension</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac <span class="im">import</span> Catalog, get_stac_version</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.eo <span class="im">import</span> EOExtension</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac.extensions.label <span class="im">import</span> LabelExtension</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-9" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the example catalog</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>root_catalog <span class="op">=</span> Catalog.from_file(<span class="st">'https://raw.githubusercontent.com/stac-utils/pystac/main/docs/example-catalog/catalog.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the example catalog</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>root_catalog <span class="op">=</span> Catalog.from_file(<span class="st">'https://raw.githubusercontent.com/stac-utils/pystac/main/docs/example-catalog/catalog.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -308,7 +325,7 @@ How to run this tutorial
 <p>NOTE: Be careful using the <code>describe</code> method on large catalogs, as it will walk and print the entire tree of the STAC.</p>
 </div>
 <div id="cell-13" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>root_catalog.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>root_catalog.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>* &lt;Catalog id=landsat-stac-collection-catalog&gt;
     * &lt;Collection id=landsat-8-l1&gt;
@@ -320,11 +337,11 @@ How to run this tutorial
 </div>
 <p>From this output, we can see that the catalog has 1 collection and that this collection has 4 items.</p>
 <p>Now, let’s look at the root catalog more in depth.</p>
-<div id="cell-15" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print some basic metadata from the Catalog</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ID: </span><span class="sc">{</span>root_catalog<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Title: </span><span class="sc">{</span>root_catalog<span class="sc">.</span>title <span class="kw">or</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Description: </span><span class="sc">{</span>root_catalog<span class="sc">.</span>description <span class="kw">or</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-15" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print some basic metadata from the Catalog</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ID: </span><span class="sc">{</span>root_catalog<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Title: </span><span class="sc">{</span>root_catalog<span class="sc">.</span>title <span class="kw">or</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Description: </span><span class="sc">{</span>root_catalog<span class="sc">.</span>description <span class="kw">or</span> <span class="st">'N/A'</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ID: landsat-stac-collection-catalog
 Title: STAC for Landsat data
@@ -335,8 +352,8 @@ Description: STAC for Landsat data</code></pre>
 <p>Note: we do not print the “stac_version” here. PySTAC automatically updates any catalogs to the most recent supported STAC version and will automatically write this to the JSON object during serialization.</p>
 </div>
 <p>Let’s confirm the latest STAC Specification version supported by PySTAC.</p>
-<div id="cell-17" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(get_stac_version())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-17" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(get_stac_version())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.1.0</code></pre>
 </div>
@@ -347,13 +364,13 @@ Description: STAC for Landsat data</code></pre>
 <h2 class="anchored" data-anchor-id="crawl-stac-child-catalogs-andor-collections">Crawl STAC Child Catalogs and/or Collections</h2>
 <p><a href="https://github.com/radiantearth/stac-spec/tree/master/collection-spec">STAC Collections</a> are used to group related items and provide aggregate or summary metadata for those items.</p>
 <p>STAC Catalogs may have many nested layers of catalogs or collections within the top-level collection. Our example catalog only has one collection within the main catalog at <a href="../../../../public/example-catalog/landsat-8-l1/collection.json">landsat-8-l1/collection.json</a>. We can list the collections in a given catalog using the <code>Catalog.get_collections</code> method. This method returns an iterable of PySTAC <a href="https://pystac.readthedocs.io/en/latest/api.html#collection">Collection</a> instances, which we will turn into a <code>list</code>.</p>
-<div id="cell-20" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>collections <span class="op">=</span> <span class="bu">list</span>(root_catalog.get_collections())</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of collections: </span><span class="sc">{</span><span class="bu">len</span>(collections)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Collections IDs:"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> collection <span class="kw">in</span> collections:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>collection<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-20" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>collections <span class="op">=</span> <span class="bu">list</span>(root_catalog.get_collections())</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of collections: </span><span class="sc">{</span><span class="bu">len</span>(collections)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Collections IDs:"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> collection <span class="kw">in</span> collections:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>collection<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of collections: 1
 Collections IDs:
@@ -361,12 +378,12 @@ Collections IDs:
 </div>
 </div>
 <p>Let’s grab that collection as a PySTAC <a href="https://pystac.readthedocs.io/en/latest/api/collection.html#pystac-collection">Collection</a> instance using the <code>Catalog.get_child</code> method so we can look at it in more detail. This method gets a child catalog or collection by ID, so we’ll use the collection ID that we printed above. Since this method returns <code>None</code> if no child exists with the given ID, let’s check to make sure we actually got the <code>Collection</code>.</p>
-<div id="cell-22" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> root_catalog.get_child(<span class="st">"landsat-8-l1"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> collection <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Collection is Empty. Check your downloads and try agian."</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Collection has a root child. You may proceed to the following steps."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-22" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> root_catalog.get_child(<span class="st">"landsat-8-l1"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> collection <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Collection is Empty. Check your downloads and try agian."</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Collection has a root child. You may proceed to the following steps."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Collection has a root child. You may proceed to the following steps.</code></pre>
 </div>
@@ -376,12 +393,12 @@ Collections IDs:
 <h2 class="anchored" data-anchor-id="crawl-the-stac-items">Crawl the STAC Items</h2>
 <p><a href="https://github.com/radiantearth/stac-spec/tree/master/item-spec">STAC Items</a> are the fundamental building blocks of a STAC Catalog. Each Item represents a single spatiotemporal resource (e.g.&nbsp;a satellite scene).</p>
 <p>Both catalogs and collections may have items associated with them. Let’s crawl our catalog, starting at the root, to see what Items we have. The <code>Catalog.get_all_items</code> method provides a convenient way of recursively listing all Items associated with a catalog and all of its sub-catalogs.</p>
-<div id="cell-24" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> <span class="bu">list</span>(root_catalog.get_all_items())</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of items: </span><span class="sc">{</span><span class="bu">len</span>(items)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> items:</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>item<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-24" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> <span class="bu">list</span>(root_catalog.get_all_items())</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of items: </span><span class="sc">{</span><span class="bu">len</span>(items)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> items:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>item<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of items: 4
 - LC80140332018166LGN00
@@ -404,15 +421,15 @@ Collections IDs:
 </ol>
 <p>We will walk through each of these metadata categories in the following sections.</p>
 <p>First, let’s grab one of the Items using the <code>Catalog.get_item</code> method. We will use <code>recursive=True</code> to recursively crawl all child catalogs and/or collections to find the item.</p>
-<div id="cell-28" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> root_catalog.get_item(<span class="st">"LC80140332018166LGN00"</span>, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-28" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> root_catalog.get_item(<span class="st">"LC80140332018166LGN00"</span>, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="core-item-metadata" class="level4">
 <h4 class="anchored" data-anchor-id="core-item-metadata">1. Core Item Metadata</h4>
 <p>The core item metadata fields include spatiotemporal information and the ID of the collection to which the item belongs. These fields are all at the top level of the item JSON and we can access them through attributes on the <a href="https://pystac.readthedocs.io/en/latest/api/collection.html#pystac-collection">PySTAC Item</a> instance.</p>
-<div id="cell-30" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>item.geometry</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="cell-30" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>item.geometry</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>{'type': 'Polygon',
  'coordinates': [[[-76.12180471942207, 39.95810181489563],
    [-73.94910518227414, 39.55117185146004],
@@ -421,28 +438,28 @@ Collections IDs:
    [-76.12180471942207, 39.95810181489563]]]}</code></pre>
 </div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>item.bbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="cell-31" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>item.bbox</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>[-76.66703, 37.82561, -73.94861, 39.95958]</code></pre>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>item.datetime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="cell-32" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>item.datetime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>datetime.datetime(2018, 6, 15, 15, 39, 9, tzinfo=tzutc())</code></pre>
 </div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>item.collection_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="cell-33" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>item.collection_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>'landsat-8-l1'</code></pre>
 </div>
 </div>
 <p>We can also access the same information as the cell above by running the <code>Item.get_collection</code> method.</p>
-<div id="cell-35" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>item.get_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="cell-35" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>item.get_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 
 
 <style>
@@ -1760,21 +1777,21 @@ Collections IDs:
 <section id="common-metadata" class="level4">
 <h4 class="anchored" data-anchor-id="common-metadata">2. Common Metadata</h4>
 <p>Certain fields that are commonly used in Items, but may also be found in other objects (e.g.&nbsp;Assets) are defined in the <a href="https://github.com/radiantearth/stac-spec/blob/v1.0.0/item-spec/common-metadata.md">Common Metadata</a> section of the spec. These include licensing and instrument information, descriptions of datetime ranges, and some other common fields. These properties can be found as attributes of the <code>Item.common_metadata</code> property, which is an instance of the <code>CommonMetadata</code> class.</p>
-<div id="cell-37" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="cell-37" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.instruments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>['OLI_TIRS']</code></pre>
 </div>
 </div>
-<div id="cell-38" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.platform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div id="cell-38" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.platform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>'landsat-8'</code></pre>
 </div>
 </div>
-<div id="cell-39" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.gsd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div id="cell-39" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>item.common_metadata.gsd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>30</code></pre>
 </div>
 </div>
@@ -1782,9 +1799,9 @@ Collections IDs:
 <section id="stac-extensions" class="level4">
 <h4 class="anchored" data-anchor-id="stac-extensions">3. STAC Extensions</h4>
 <p><a href="https://github.com/radiantearth/stac-spec/tree/master/extensions">STAC Extensions</a> are a mechanism for providing additional metadata not covered by the core STAC Spec. We can see which STAC Extensions are implemented by this particular Item by examining the list of extension URIs in the <code>stac_extensions</code> field.</p>
-<div id="cell-41" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>item.stac_extensions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div id="cell-41" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>item.stac_extensions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>['https://stac-extensions.github.io/eo/v1.1.0/schema.json',
  'https://stac-extensions.github.io/view/v1.0.0/schema.json',
  'https://stac-extensions.github.io/projection/v2.0.0/schema.json']</code></pre>
@@ -1792,30 +1809,30 @@ Collections IDs:
 </div>
 <p>This Item implements the <a href="https://github.com/stac-extensions/eo">Electro-Optical</a>, <a href="https://github.com/stac-extensions/view">View Geometry</a>, and <a href="https://github.com/stac-extensions/projection">Projection</a> Extensions.</p>
 <p>We can also check if a specific extension is implemented using the <code>has_extension</code> method for that extension class.</p>
-<div id="cell-43" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>EOExtension.has_extension(item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div id="cell-43" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>EOExtension.has_extension(item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="cell-44" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>LabelExtension.has_extension(item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div id="cell-44" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>LabelExtension.has_extension(item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>False</code></pre>
 </div>
 </div>
 <p>We can access fields associated with the extension as attributes on the extension instance. For instance, the <a href="https://github.com/stac-extensions/eo#item-properties-or-asset-fields">“eo:cloud_cover” field</a> defined in the Electro-Optical Extension can be accessed using the <a href="https://pystac.readthedocs.io/en/latest/api.html#pystac.extensions.eo.EOExtension.cloud_cover">EOExtension.cloud_cover</a> attribute.</p>
-<div id="cell-46" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>eo_item_ext <span class="op">=</span> EOExtension.ext(item)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>eo_item_ext.cloud_cover</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div id="cell-46" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>eo_item_ext <span class="op">=</span> EOExtension.ext(item)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>eo_item_ext.cloud_cover</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>22</code></pre>
 </div>
 </div>
 <p>We can also access the cloud cover field directly in the Item properties.</p>
-<div id="cell-48" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>item.properties[<span class="st">'eo:cloud_cover'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div id="cell-48" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>item.properties[<span class="st">'eo:cloud_cover'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>22</code></pre>
 </div>
 </div>
@@ -1825,10 +1842,10 @@ Collections IDs:
 <section id="access-stac-items-assets" class="level2">
 <h2 class="anchored" data-anchor-id="access-stac-items-assets">Access STAC Item’s Assets</h2>
 <p>To access the item’s assets, we can use the <code>assets</code> attribute, which is a dictionary:</p>
-<div id="cell-51" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> asset_key <span class="kw">in</span> item.assets:</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    asset <span class="op">=</span> item.assets[asset_key]</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st"> (</span><span class="sc">{}</span><span class="st">)'</span>.<span class="bu">format</span>(asset_key, asset.href, asset.media_type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-51" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> asset_key <span class="kw">in</span> item.assets:</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    asset <span class="op">=</span> item.assets[asset_key]</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st"> (</span><span class="sc">{}</span><span class="st">)'</span>.<span class="bu">format</span>(asset_key, asset.href, asset.media_type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>index: https://s3-us-west-2.amazonaws.com/landsat-pds/c1/L8/014/033/LC08_L1TP_014033_20180615_20180703_01_T1/index.html (text/html)
 thumbnail: https://s3-us-west-2.amazonaws.com/landsat-pds/c1/L8/014/033/LC08_L1TP_014033_20180615_20180703_01_T1/LC08_L1TP_014033_20180615_20180703_01_T1_thumb_large.jpg (image/jpeg)
@@ -1849,10 +1866,10 @@ BQA: https://s3-us-west-2.amazonaws.com/landsat-pds/c1/L8/014/033/LC08_L1TP_0140
 </div>
 </div>
 <p>We can use the <code>to_dict()</code> method to convert an asset, or any PySTAC object, into a dictionary:</p>
-<div id="cell-53" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>asset <span class="op">=</span> item.assets[<span class="st">'B3'</span>]</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>asset.to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="cell-53" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>asset <span class="op">=</span> item.assets[<span class="st">'B3'</span>]</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>asset.to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>{'href': 'https://s3-us-west-2.amazonaws.com/landsat-pds/c1/L8/014/033/LC08_L1TP_014033_20180615_20180703_01_T1/LC08_L1TP_014033_20180615_20180703_01_T1_B3.TIF',
  'type': 'image/tiff',
  'title': 'Band 3 (green)',
@@ -1864,24 +1881,24 @@ BQA: https://s3-us-west-2.amazonaws.com/landsat-pds/c1/L8/014/033/LC08_L1TP_0140
 </div>
 </div>
 <p>Here, we use the <code>eo Extension</code> to get the band information for the asset:</p>
-<div id="cell-55" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>eo_asset_ext <span class="op">=</span> EOExtension.ext(asset)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> eo_asset_ext.bands</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>bands</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="cell-55" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>eo_asset_ext <span class="op">=</span> EOExtension.ext(asset)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> eo_asset_ext.bands</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>bands</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>[&lt;Band name=B3&gt;]</code></pre>
 </div>
 </div>
-<div id="cell-56" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>bands[<span class="dv">0</span>].to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div id="cell-56" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>bands[<span class="dv">0</span>].to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>{'name': 'B3',
  'full_width_half_max': 0.06,
  'center_wavelength': 0.56,
  'common_name': 'green'}</code></pre>
 </div>
 </div>
-<p>You have now successfully explored the common components of an existing STAC Catalog. To learn how to write your own STAC Catalog, see the <a href="../../../../en/tutorials/2-create-stac-catalog-python/index.html">following tutorial</a>.</p>
+<p>You have now successfully explored the common components of an existing STAC Catalog. To learn how to write your own STAC Catalog, see the <a href="https://stacspec.org/en/tutorials/2-create-stac-catalog-python/">following tutorial</a>.</p>
 <section id="join-the-conversation" class="level4">
 <h4 class="anchored" data-anchor-id="join-the-conversation">Join the conversation</h4>
 <p>If you have any questions, you’re welcome to ask our community on <a href="https://app.gitter.im/#/room/#SpatioTemporal-Asset-Catalog_Lobby">Gitter</a>.</p>
