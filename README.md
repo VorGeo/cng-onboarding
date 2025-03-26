@@ -55,11 +55,12 @@ Steps:
 3. In the "Create codespace" page, modify the selection options as needed and then click "Create codespace".
 4. A new Codespace will be started. It can take up to 5 minutes for the codespace to be configured, at which point you will see the message "Finished configuring codespace." in the terminal tab.
 5. Once the codespace is ready, you can interact with the tutorial in the same way as you would in a local environment. Open up the notebook (index.ipynb) and start executing the cells.
-    - You may need to specify the kernel to use for the notebook. To do this, click on the kernel name in the top right corner of the notebook and select the default kernel (e.g., `.pixi/envs/defaul/bin/python`).
+    - You may need to specify the kernel to use for the notebook. To do this, click on the kernel name in the top right corner of the notebook and select the default kernel (e.g., `.pixi/envs/default/bin/python`).
 
 ## Contributing
 
-*TODO... describe how to contribute changes to the tutorials.*
+*[TODO... Describe how to contribute changes to the tutorials. Describe the steps for creating a new tutorial.]*
+
 
 # Colophon
 
