@@ -264,7 +264,7 @@ How to run this tutorial
 </div>
 <div class="callout-body-container callout-body">
 <p>In order to run the code in this tutorial, you can either download the notebook to run it on your local computer, or click the button below to run the tutorial in a GitHub Codespace.</p>
-<p><a href="https://github.com/codespaces/new?hide_repo_select=true&amp;skip_quickstart=true&amp;ref=main&amp;repo=939648830&amp;devcontainer=Tutorial+1&amp;devcontainer_path=.devcontainer%2Ftutorial_1_container%2Fdevcontainer.json&amp;geo=UsWest&amp;machine=basicLinux32gb"><img src="https://github.com/codespaces/badge.svg" class="img-fluid"></a></p>
+<p><a href="https://github.com/codespaces/new?hide_repo_select=true&amp;skip_quickstart=true&amp;ref=main&amp;repo=939648830&amp;devcontainer_path=.devcontainer%2Fguide_s2_aws_container%2Fdevcontainer.json&amp;geo=UsWest&amp;machine=basicLinux32gb"><img src="https://github.com/codespaces/badge.svg" class="img-fluid"></a></p>
 </div>
 </div>
 <section id="access-sentinel-2-data-from-aws" class="level1">
@@ -276,7 +276,7 @@ How to run this tutorial
 </figure>
 </div>
 <p>https://registry.opendata.aws/sentinel-2-l2a-cogs/</p>
-<div id="de7beb3a" class="cell" data-trusted="true">
+<div id="de7beb3a" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dask.distributed</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium.plugins</span>
@@ -291,7 +291,7 @@ How to run this tutorial
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> odc.stac <span class="im">import</span> configure_rio, stac_load</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c106964d" class="cell" data-trusted="true">
+<div id="c106964d" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_bounds(bbox, invert_y<span class="op">=</span><span class="va">False</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Helper method for changing bounding box representation to leaflet notation</span></span>
@@ -303,7 +303,7 @@ How to run this tutorial
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        y1, y2 <span class="op">=</span> y2, y1</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ((y1, x1), (y2, x2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="44f2ec9b" class="cell" data-trusted="true">
+<div id="44f2ec9b" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cfg <span class="op">=</span> <span class="st">"""---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">sentinel-s2-l2a-cogs:</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">  assets:</span></span>
@@ -331,7 +331,7 @@ How to run this tutorial
 <section id="start-dask-client" class="level2">
 <h2 class="anchored" data-anchor-id="start-dask-client">Start Dask Client</h2>
 <p>This step is optional, but it does improve load speed significantly. You don’t have to use Dask, as you can load data directly into memory of the notebook.</p>
-<div id="25850c21" class="cell" data-outputid="040945d9-2b3b-45b2-ded9-3c6a02ba0193" data-trusted="true">
+<div id="25850c21" class="cell" data-outputid="040945d9-2b3b-45b2-ded9-3c6a02ba0193">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> dask.distributed.Client()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>configure_rio(cloud_defaults<span class="op">=</span><span class="va">True</span>, aws<span class="op">=</span>{<span class="st">"aws_unsigned"</span>: <span class="va">True</span>}, client<span class="op">=</span>client)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>display(client)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,7 +575,7 @@ Hosting the HTTP server on port 60429 instead
 </section>
 <section id="find-stac-items-to-load" class="level2">
 <h2 class="anchored" data-anchor-id="find-stac-items-to-load">Find STAC Items to Load</h2>
-<div id="1dab13ae" class="cell" data-outputid="7a2b9d8f-9312-46e3-a037-a1afb5a4d93a" data-trusted="true">
+<div id="1dab13ae" class="cell" data-outputid="7a2b9d8f-9312-46e3-a037-a1afb5a4d93a">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>km2deg <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> <span class="dv">111</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> (<span class="fl">113.887</span>, <span class="op">-</span><span class="fl">25.843</span>)  <span class="co"># Center point of a query</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> km2deg</span>
@@ -600,7 +600,7 @@ Hosting the HTTP server on port 60429 instead
 <section id="review-query-result" class="level2">
 <h2 class="anchored" data-anchor-id="review-query-result">Review Query Result</h2>
 <p>We’ll use GeoPandas DataFrame object to make plotting easier.</p>
-<div id="f3385d02" class="cell" data-outputid="e3b725a5-855b-4b04-ad0c-0e2875526252" data-trusted="true">
+<div id="f3385d02" class="cell" data-outputid="e3b725a5-855b-4b04-ad0c-0e2875526252">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame.from_features(stac_json, <span class="st">"epsg:4326"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute granule id from components</span></span>
@@ -632,7 +632,7 @@ Hosting the HTTP server on port 60429 instead
 </section>
 <section id="plot-stac-items-on-a-map" class="level2">
 <h2 class="anchored" data-anchor-id="plot-stac-items-on-a-map">Plot STAC Items on a Map</h2>
-<div id="e1bfbe93" class="cell" data-outputid="313d30ec-8a6a-43d5-f334-a6ef8d49020c" data-trusted="true">
+<div id="e1bfbe93" class="cell" data-outputid="313d30ec-8a6a-43d5-f334-a6ef8d49020c">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/python-visualization/folium/issues/1501</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> Figure(width<span class="op">=</span><span class="st">"400px"</span>, height<span class="op">=</span><span class="st">"500px"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>map1 <span class="op">=</span> folium.Map()</span>
@@ -997,7 +997,7 @@ Hosting the HTTP server on port 60429 instead
 <section id="construct-dask-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="construct-dask-dataset">Construct Dask Dataset</h2>
 <p>Note that even though there are 9 STAC Items on input, there is only one timeslice on output. This is because of <code>groupby="solar_day"</code>. With that setting <code>stac_load</code> will place all items that occured on the same day (as adjusted for the timezone) into one image plane.</p>
-<div id="c1151acf" class="cell" data-outputid="a9c1d52e-ec9c-40ed-bd6e-eb36a49056c2" data-trusted="true">
+<div id="c1151acf" class="cell" data-outputid="a9c1d52e-ec9c-40ed-bd6e-eb36a49056c2">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Since we will plot it on a map we need to use `EPSG:3857` projection</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> <span class="st">"epsg:3857"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>zoom <span class="op">=</span> <span class="dv">2</span><span class="op">**</span><span class="dv">5</span>  <span class="co"># overview level 5</span></span>
@@ -1531,7 +1531,7 @@ Data variables:
 </section>
 <section id="load-data-and-convert-to-rgba" class="level2">
 <h2 class="anchored" data-anchor-id="load-data-and-convert-to-rgba">Load data and convert to RGBA</h2>
-<div id="c767fd3e" class="cell" data-outputid="f48a552a-242e-4f34-b7c6-9cececd65dbf" data-trusted="true">
+<div id="c767fd3e" class="cell" data-outputid="f48a552a-242e-4f34-b7c6-9cececd65dbf">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>rgba <span class="op">=</span> to_rgba(xx, clamp<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">3000</span>))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>_rgba <span class="op">=</span> rgba.compute()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1543,7 +1543,7 @@ Wall time: 42.1 s</code></pre>
 </section>
 <section id="display-image-on-a-map" class="level2">
 <h2 class="anchored" data-anchor-id="display-image-on-a-map">Display Image on a map</h2>
-<div id="fdbe8133" class="cell" data-outputid="4e6a2a02-f1ae-41bd-bde6-8c2d49e0f50a" data-trusted="true">
+<div id="fdbe8133" class="cell" data-outputid="4e6a2a02-f1ae-41bd-bde6-8c2d49e0f50a">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>map2 <span class="op">=</span> folium.Map()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>folium.GeoJson(</span>
@@ -1960,7 +1960,7 @@ Wall time: 42.1 s</code></pre>
 <h2 class="anchored" data-anchor-id="load-with-bounding-box">Load with bounding box</h2>
 <p>As you can see <code>stac_load</code> returned all the data covered by STAC items returned from the query. This happens by default as <code>stac_load</code> has no way of knowing what your query was. But it is possible to control what region is loaded. There are several mechanisms available, but probably simplest one is to use <code>bbox=</code> parameter (compatible with <code>stac_client</code>).</p>
 <p>Let’s load a small region at native resolution to demonstrate.</p>
-<div id="27a5994f" class="cell" data-trusted="true">
+<div id="27a5994f" class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">6.5</span> <span class="op">*</span> km2deg</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>small_bbox <span class="op">=</span> (x <span class="op">-</span> r, y <span class="op">-</span> r, x <span class="op">+</span> r, y <span class="op">+</span> r)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1976,7 +1976,7 @@ Wall time: 42.1 s</code></pre>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>im_small <span class="op">=</span> to_rgba(yy, clamp<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">3000</span>)).compute()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ec9112c1" class="cell" data-outputid="f1bd9281-bb20-4714-e805-404956da3b93" data-trusted="true">
+<div id="ec9112c1" class="cell" data-outputid="f1bd9281-bb20-4714-e805-404956da3b93">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>img_zoomed_in <span class="op">=</span> odc.ui.mk_data_uri(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    odc.ui.to_jpeg_data(im_small.isel(time<span class="op">=</span><span class="dv">0</span>).data, quality<span class="op">=</span><span class="dv">80</span>), <span class="st">"image/jpeg"</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1985,7 +1985,7 @@ Wall time: 42.1 s</code></pre>
 <pre><code>Image url: data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQOD...</code></pre>
 </div>
 </div>
-<div id="aaefba3e" class="cell" data-outputid="18234495-f103-448e-91d9-d111e91fd9f3" data-trusted="true">
+<div id="aaefba3e" class="cell" data-outputid="18234495-f103-448e-91d9-d111e91fd9f3">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>HTML(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span><span class="ss">f"""</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;style&gt; .img-two-column</span><span class="ch">{{</span></span>
