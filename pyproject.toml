@@ -7,9 +7,12 @@ requires-python = ">= 3.11"
 version = "0.1.0"
 
 [project.optional-dependencies]
-dev = ["black>=25.1.0", "isort>=5.13.0"]
+dev = ["ruff"]
 
-[tool.black]
-line-length = 88
-target-version = ["py311", "py312"]
-include = '\.pyi?$'
+[tool.ruff]
+line-length = 120
+indent-width = 4
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.format]
+quote-style = "single"
