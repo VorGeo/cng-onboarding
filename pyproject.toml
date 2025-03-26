@@ -2,7 +2,7 @@
 name = "CNG-tutorials"
 description = "Cloud-Native Geospatial (CNG) tutorials"
 authors = [{name = "Tyler Erickson", email = "tyler@vorgeo.com"}]
-dependencies = ["black"]
+dependencies = []
 requires-python = ">= 3.11"
 version = "0.1.0"
 
@@ -10,3 +10,15 @@ version = "0.1.0"
 line-length = 88
 target-version = ["py311", "py312"]
 include = '\.pyi?$'
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+CNG-tutorials = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+black = ">=25.1.0,<26"
