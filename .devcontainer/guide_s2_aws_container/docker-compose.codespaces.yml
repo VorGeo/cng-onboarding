@@ -1,5 +1,5 @@
 services:
-  tutorial-1-service:
+  guide-s2-aws-service:
     # https://github.com/devcontainers/images/tree/main/src/python
     image: mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
     volumes:

@@ -1,21 +1,21 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Tutorial 1",
+	"name": "Guide: Reading Landsat from MSPC",
 	"dockerComposeFile": ["../../docker-compose.yml", "docker-compose.codespaces.yml"],
-	"service": "tutorial-1-service",
+	"service": "guide-stac-mspc-landsat-service",
   "shutdownAction": "none",
-  "workspaceFolder": "/workspace/tutorials/stac/e84_aws",
+  "workspaceFolder": "/workspace/tutorials/stac/mspc_stac",
 
 	// Make the container name and service name available to the container.
 	"containerEnv": {
-		"SERVICE_NAME": "tutorial-1-service",
-		"CONTAINER_NAME": "Tutorial 1"
+		"SERVICE_NAME": "guide-stac-mspc-landsat-service",
+		"CONTAINER_NAME": "Guide: Reading Landsat from MSPC"
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-	
+
 	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
 	"postCreateCommand": "/workspace/.devcontainer/postCreateCommand.sh",
 
@@ -25,7 +25,7 @@
       "extensions": [
 				"ms-python.python",
 				"ms-toolsai.jupyter"
-			]
+			],
     }
   }
 

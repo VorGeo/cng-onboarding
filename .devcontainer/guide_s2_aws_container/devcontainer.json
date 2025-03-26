@@ -1,21 +1,21 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Tutorial 2",
+	"name": "Guide: Access Sentinel 2 Data from AWS",
 	"dockerComposeFile": ["../../docker-compose.yml", "docker-compose.codespaces.yml"],
-	"service": "tutorial-2-service",
+	"service": "guide-s2-aws-service",
   "shutdownAction": "none",
-  "workspaceFolder": "/workspace/tutorials/stac/mspc_stac",
+  "workspaceFolder": "/workspace/tutorials/stac/e84_aws",
 
 	// Make the container name and service name available to the container.
 	"containerEnv": {
-		"SERVICE_NAME": "tutorial-2-service",
-		"CONTAINER_NAME": "Tutorial 2"
+		"SERVICE_NAME": "guide-s2-aws-service",
+		"CONTAINER_NAME": "Guide: Access Sentinel 2 Data from AWS"
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
+	
 	// Install pixi, use it to install dependencies, and create a kernel for Jupyter.
 	"postCreateCommand": "/workspace/.devcontainer/postCreateCommand.sh",
 
@@ -25,7 +25,7 @@
       "extensions": [
 				"ms-python.python",
 				"ms-toolsai.jupyter"
-			],
+			]
     }
   }
 

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Python STAC",
+	"name": "Python STAC Tutorials Container",
 	"dockerComposeFile": ["../../docker-compose.yml", "docker-compose.codespaces.yml"],
 	"service": "python-stac-service",
   "shutdownAction": "none",
@@ -10,7 +10,7 @@
 	// Make the container name and service name available to the container.
 	"containerEnv": {
 		"SERVICE_NAME": "python-stac-service",
-		"CONTAINER_NAME": "Python STAC"
+		"CONTAINER_NAME": "Python STAC Tutorials Container"
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
