@@ -1,0 +1,7 @@
+[project]
+name = "CNG-tutorials"
+description = "Cloud-Native Geospatial (CNG) tutorials"
+authors = [{name = "Tyler Erickson", email = "tyler@vorgeo.com"}]
+dependencies = []
+requires-python = ">= 3.11"
+version = "0.1.0"
