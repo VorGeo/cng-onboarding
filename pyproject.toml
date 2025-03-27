@@ -12,7 +12,6 @@ dev = ["ruff"]
 [tool.ruff]
 line-length = 120
 indent-width = 4
-extend-exclude = ["*.ipynb"]
 
 [tool.ruff.format]
 quote-style = "single"
