@@ -1,0 +1,13 @@
+name: nbstripout
+on: [ push, pull_request ]
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Strip notebook metadata
+        run: |
+          pip install nbstripout
+          nbstripout --install
+          find . -name "*.ipynb" -exec nbstripout {} \;
