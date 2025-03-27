@@ -1,13 +1,24 @@
 name: nbstripout
 on: [ push, pull_request ]
 jobs:
-  strip:
+  strip_metadata:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Strip notebook metadata
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install nbstripout
+        run: pip install nbstripout
+
+      - name: Strip metadata from notebooks with verbose logging
         run: |
-          pip install nbstripout
-          nbstripout --install
-          find . -name "*.ipynb" -exec nbstripout {} \;
+          echo "Stripping metadata from notebooks..."
+          find . -name "*.ipynb" | while read notebook; do
+            echo "Processing $notebook"
+            nbstripout --verbose "$notebook"
+          done
