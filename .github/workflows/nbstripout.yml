@@ -25,7 +25,7 @@ jobs:
           echo "Stripping metadata from notebooks..."
           find . -name "*.ipynb" | while read notebook; do
             echo "Processing $notebook"
-            nbstripout --drop-empty-cells "$notebook"
+            nbstripout --keep-output "$notebook"
             echo "Committing stripped notebook $notebook"
             git add "$notebook"
             git commit -m "Strip metadata from $notebook"
