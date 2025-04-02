@@ -25,7 +25,7 @@ jobs:
           echo "Stripping metadata from notebooks..."
           find . -name "*.ipynb" | while read notebook; do
             echo "Processing $notebook"
-            nbstripout --keep-output "$notebook"
+            nbstripout --keep-count --keep-output --drop-empty-cells "$notebook"
             git add "$notebook"
             if git status --porcelain | grep -E '^(A|M)'; then
               echo "New files detected. Committing changes..."
