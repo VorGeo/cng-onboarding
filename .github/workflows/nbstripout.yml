@@ -20,5 +20,5 @@ jobs:
           echo "Stripping metadata from notebooks..."
           find . -name "*.ipynb" | while read notebook; do
             echo "Processing $notebook"
-            nbstripout --dry-run "$notebook"
+            nbstripout "$notebook"
           done
