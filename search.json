@@ -116,6 +116,6 @@
     "href": "tutorials/stac/e84_aws/test_nbstripout.html",
     "title": "CNG Tutorials",
     "section": "",
-    "text": "import datetime\n\n\nprint(1+2+3)\nprint(datetime.datetime.now())\n\n\n# Run this out of order\n\nprint(datetime.datetime.now())\n\n2025-04-02 12:48:45.100280"
+    "text": "import datetime\n\n\nprint(1+2+3)\nprint(datetime.datetime.now())\n\n6\n2025-04-02 12:57:56.162851\n\n\n\n# Run this out of order\n\nprint(datetime.datetime.now())\n\n2025-04-02 12:57:57.572245"
   }
 ]
