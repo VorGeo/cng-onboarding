@@ -12,13 +12,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install nbstripout
-        run: pip install nbstripout
+      # - name: Install nbstripout
+      #   run: pip install nbstripout
 
-      - name: Strip metadata from notebooks with verbose logging
-        run: |
-          echo "Stripping metadata from notebooks..."
-          find . -name "*.ipynb" | while read notebook; do
-            echo "Processing $notebook"
-            nbstripout --dry-run "$notebook"
-          done
+      # - name: Strip metadata from notebooks with verbose logging
+      #   run: |
+      #     echo "Stripping metadata from notebooks..."
+      #     find . -name "*.ipynb" | while read notebook; do
+      #       echo "Processing $notebook"
+      #       nbstripout --dry-run "$notebook"
+      #     done
