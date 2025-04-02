@@ -264,7 +264,7 @@ How to run this tutorial
 <h2 class="anchored" data-anchor-id="reading-data-from-the-stac-api">Reading Data from the STAC API</h2>
 <p>The Planetary Computer catalogs the datasets we host using the <a href="http://stacspec.org/">STAC</a> (SpatioTemporal Asset Catalog) specification. We provide a <a href="https://github.com/radiantearth/stac-api-spec">STAC API</a> endpoint that can be used to search our datasets by space, time, and more. This quickstart will show you how to search for data using our STAC API and open-source Python libraries. For more on how to use our STAC API from R, see <a href="https://planetarycomputer.microsoft.com/docs/quickstarts/reading-stac-r/">Reading data from the STAC API with R</a>.</p>
 <p>First we’ll use pystac-client to open up our STAC API:</p>
-<div id="fda5e533-84b8-4051-9198-2df74338ae71" class="cell" data-execution_count="1">
+<div id="3" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pystac_client <span class="im">import</span> Client</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> Client.<span class="bu">open</span>(<span class="st">"https://planetarycomputer.microsoft.com/api/stac/v1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -273,7 +273,7 @@ How to run this tutorial
 <h3 class="anchored" data-anchor-id="searching">Searching</h3>
 <p>We can use the STAC API to search for assets meeting some criteria. This might include the date and time the asset covers, is spatial extent, or any other property captured in the STAC item’s metadata.</p>
 <p>In this example we’ll search for imagery from <a href="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2">Landsat Collection 2 Level-2</a> area around Microsoft’s main campus in December of 2020.</p>
-<div id="2ec73f94-3989-49cf-920a-fde66c7946b8" class="cell" data-outputid="2145590e-5c69-48a7-d4cc-6dad34e326e7">
+<div id="5" class="cell" data-outputid="2145590e-5c69-48a7-d4cc-6dad34e326e7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>time_range <span class="op">=</span> <span class="st">"2020-12-01/2020-12-31"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> [<span class="op">-</span><span class="fl">122.2751</span>, <span class="fl">47.5469</span>, <span class="op">-</span><span class="fl">121.9613</span>, <span class="fl">47.7458</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -301,23 +301,23 @@ How to run this tutorial
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"landsat-8-c2-l2"</span>], intersects<span class="op">=</span>area_of_interest, datetime<span class="op">=</span>time_range</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>items</code> is a <a href="https://pystac.readthedocs.io/en/stable/api/item_collection.html#pystac-item-collection"><code>pystac.ItemCollection</code></a>. We can see that 4 items matched our search criteria.</p>
-<div id="c62e1ca1-0be3-45a6-bb8a-5fd048a5478c" class="cell" data-outputid="ef6b7348-9b30-429d-90bd-2f6ad3ecf613">
+<div id="8" class="cell" data-outputid="ef6b7348-9b30-429d-90bd-2f6ad3ecf613">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(items)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Each <a href="https://pystac.readthedocs.io/en/stable/api/pystac.html#pystac.Item"><code>pystac.Item</code></a> in this <code>ItemCollection</code> includes all the metadata for that scene. <a href="https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md">STAC Items</a> are GeoJSON features, and so can be loaded by libraries like <a href="http://geopandas.readthedocs.io/">geopandas</a>.</p>
-<div id="b95c28ed-0ab1-4d4c-aa0f-a0382f694238" class="cell" data-outputid="e1ea3e84-6110-45a3-df0e-686ff2415877">
+<div id="10" class="cell" data-outputid="e1ea3e84-6110-45a3-df0e-686ff2415877">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> geopandas.GeoDataFrame.from_features(items.to_dict(), crs<span class="op">=</span><span class="st">"epsg:4326"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use the <code>eo</code> extension to sort the items by cloudiness. We’ll grab an item with low cloudiness:</p>
-<div id="c60accc9-4126-4609-8a65-406719b5485b" class="cell" data-outputid="40e48370-85dc-4062-b603-a968c6896d71">
+<div id="12" class="cell" data-outputid="40e48370-85dc-4062-b603-a968c6896d71">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>selected_item <span class="op">=</span> <span class="bu">min</span>(items, key<span class="op">=</span><span class="kw">lambda</span> item: item.properties[<span class="st">"eo:cloud_cover"</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>selected_item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Each STAC item has one or more <a href="https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object">Assets</a>, which include links to the actual files.</p>
-<div id="f507b45d-5985-4f10-9850-c1b3947c9908" class="cell" data-outputid="9d0685a6-26bf-4302-829e-ab458d24814e">
+<div id="14" class="cell" data-outputid="9d0685a6-26bf-4302-829e-ab458d24814e">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rich.table</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> rich.table.Table(<span class="st">"Asset Key"</span>, <span class="st">"Descripiption"</span>)</span>
@@ -328,16 +328,16 @@ How to run this tutorial
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, we’ll inspect the <code>thumbnail</code> asset.</p>
-<div id="f175aa10-8f97-4ea3-8fda-c6fe4469baea" class="cell" data-outputid="e25f9c88-8901-45bf-8ef6-6f7064253e73">
+<div id="16" class="cell" data-outputid="e25f9c88-8901-45bf-8ef6-6f7064253e73">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>selected_item.assets[<span class="st">"thumbnail"</span>].to_dict()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="50535606-4891-40d4-9e52-7d0056583681" class="cell" data-outputid="d11c6234-1c07-47d3-8919-ab14052eb5c5">
+<div id="17" class="cell" data-outputid="d11c6234-1c07-47d3-8919-ab14052eb5c5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Image(url<span class="op">=</span>selected_item.assets[<span class="st">"thumbnail"</span>].href, width<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>That <code>rendered_preview</code> asset is generated dynamically from the raw data using the Planetary Computer’s <a href="http://planetarycomputer.microsoft.com/api/data/v1/">data API</a>. We can access the raw data, stored as Cloud Optimzied GeoTIFFs in Azure Blob Storage, using one of the other assets. That said, we do need to do one more thing before accessing the data. If we simply made a request to the file in blob storage we’d get a 404:</p>
-<div id="aefcb71d-31ba-4211-b7a5-7966c13304ef" class="cell" data-outputid="bcf2942c-4512-4f9d-8157-5306540d51f5">
+<div id="19" class="cell" data-outputid="bcf2942c-4512-4f9d-8157-5306540d51f5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> selected_item.assets[<span class="st">"SR_B2"</span>].href</span>
@@ -349,14 +349,14 @@ How to run this tutorial
 <p>To get a token for access, you can use the Planetary Computer’s <a href="">Data Authentication API</a>. You can access that anonymously, or you can provide an API Key for higher rate limits and longer-lived tokens.</p>
 <p>You can also use the <a href="https://github.com/microsoft/planetary-computer-sdk-for-python">planetary-computer</a> package to generate tokens and sign asset HREFs for access. You can install via pip with</p>
 <pre><code>&gt; pip install planetary-computer</code></pre>
-<div id="08f7fdcb-8d15-45a7-be8d-2e4d45cf96b1" class="cell" data-execution_count="10">
+<div id="21" class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> planetary_computer</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># PC_SDK_SUBSCRIPTION_KEY</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>signed_href <span class="op">=</span> planetary_computer.sign(selected_item).assets[<span class="st">"SR_B2"</span>].href</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can load up that single COG using libraries like <a href="https://corteva.github.io/rioxarray/html/rioxarray.html">rioxarray</a> or <a href="https://rasterio.readthedocs.io/en/latest/">rasterio</a></p>
-<div id="58481f78-40b5-486d-bf36-ab333206bdb4" class="cell" data-outputid="3ee84b3f-e1e6-4442-d528-b62f17d384e3">
+<div id="23" class="cell" data-outputid="3ee84b3f-e1e6-4442-d528-b62f17d384e3">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import xarray as xr</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rioxarray</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -365,7 +365,7 @@ How to run this tutorial
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>img.axes.set_axis_off()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you wish to work with multiple STAC items as a datacube, you can use libraries like <a href="https://stackstac.readthedocs.io/">stackstac</a> or <a href="https://odc-stac.readthedocs.io/en/latest/index.html">odc-stac</a>.</p>
-<div id="d4a749a5-4a05-405b-8c81-9c10317c9e33" class="cell" data-outputid="2c8f2a0f-f7e1-4c86-be4b-fd1459c17fce">
+<div id="25" class="cell" data-outputid="2c8f2a0f-f7e1-4c86-be4b-fd1459c17fce">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> stackstac</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> stackstac.stack(</span>
@@ -379,7 +379,7 @@ How to run this tutorial
 <h3 class="anchored" data-anchor-id="searching-on-additional-properties">Searching on additional properties</h3>
 <p>Previously, we searched for items by space and time. Because the Planetary Computer’s STAC API supports the <a href="https://github.com/radiantearth/stac-api-spec/blob/master/fragments/query/README.md">query</a> parameter, you can search on additional properties on the STAC item.</p>
 <p>For example, collections like <code>sentinel-2-l2a</code> and <code>landsat-8-c2-l2</code> both implement the <a href="https://github.com/stac-extensions/eo"><code>eo</code> STAC extension</a> and include an <code>eo:cloud_cover</code> property. Use <code>query={"eo:cloud_cover": {"lt": 20}}</code> to return only items that are less than 20% cloudy.</p>
-<div id="18c2f286-654a-479a-9ae0-0f819250b575" class="cell">
+<div id="27" class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>time_range <span class="op">=</span> <span class="st">"2020-12-01/2020-12-31"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> [<span class="op">-</span><span class="fl">122.2751</span>, <span class="fl">47.5469</span>, <span class="op">-</span><span class="fl">121.9613</span>, <span class="fl">47.7458</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -392,7 +392,7 @@ How to run this tutorial
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>items <span class="op">=</span> search.get_all_items()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Other common uses of the <code>query</code> parameter is to filter a collection down to items of a specific type, For example, the <a href="https://planetarycomputer.microsoft.com/dataset/goes-cmi">GOES-CMI</a> collection includes images from various when the satellite is in various modes, which produces images of either the Full Disk of the earth, the continental United States, or a mesoscale. You can use <code>goes:image-type</code> to filter down to just the ones you want.</p>
-<div id="d2db005e-9732-43e2-89c1-3133a6fda2d1" class="cell" data-execution_count="14">
+<div id="29" class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> catalog.search(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"goes-cmi"</span>],</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    bbox<span class="op">=</span>[<span class="op">-</span><span class="fl">67.2729</span>, <span class="fl">25.6000</span>, <span class="op">-</span><span class="fl">61.7999</span>, <span class="fl">27.5423</span>],</span>
@@ -404,7 +404,7 @@ How to run this tutorial
 <section id="analyzing-stac-metadata" class="level3">
 <h3 class="anchored" data-anchor-id="analyzing-stac-metadata">Analyzing STAC Metadata</h3>
 <p>STAC items are proper GeoJSON Features, and so can be treated as a kind of data on their own.</p>
-<div id="0283b780-d1c8-4715-bcc0-0e533110020f" class="cell" data-outputid="db8a2006-8183-4432-9fb2-2a6ecd8d8eba" data-tags="[]">
+<div id="31" class="cell" data-outputid="db8a2006-8183-4432-9fb2-2a6ecd8d8eba" data-tags="[]">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> catalog.search(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    collections<span class="op">=</span>[<span class="st">"sentinel-2-l2a"</span>],</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    bbox<span class="op">=</span>[<span class="op">-</span><span class="fl">124.2751</span>, <span class="fl">45.5469</span>, <span class="op">-</span><span class="fl">110.9613</span>, <span class="fl">47.7458</span>],</span>
@@ -419,7 +419,7 @@ How to run this tutorial
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or we can plot cloudiness of a region over time.</p>
-<div id="c27178d2-bc51-4097-a5d7-b2e438f61e9e" class="cell">
+<div id="33" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> catalog.search(</span>
@@ -431,7 +431,7 @@ How to run this tutorial
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> geopandas.GeoDataFrame.from_features(items.to_dict())</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"datetime"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"datetime"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="07a7e2be-cf30-4cfe-812d-83ab8b436dfe" class="cell" data-outputid="daf0ab97-3f8e-4f87-9739-e01233da529f">
+<div id="34" class="cell" data-outputid="daf0ab97-3f8e-4f87-9739-e01233da529f">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> df.set_index(<span class="st">"datetime"</span>).sort_index()[<span class="st">"eo:cloud_cover"</span>].rolling(<span class="dv">7</span>).mean()</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ts.plot(title<span class="op">=</span><span class="st">"eo:cloud-cover (7-scene rolling average)"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -440,7 +440,7 @@ How to run this tutorial
 <h3 class="anchored" data-anchor-id="working-with-stac-catalogs-and-collections">Working with STAC Catalogs and Collections</h3>
 <p>Our <code>catalog</code> is a <a href="https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md">STAC Catalog</a> that we can crawl or search. The Catalog contains <a href="https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md">STAC Collections</a> for each dataset we have indexed (which is not the yet the entirity of data hosted by the Planetary Computer).</p>
 <p>Collections have information about the <a href="https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md">STAC Items</a> they contain. For instance, here we look at the <a href="https://github.com/stac-extensions/eo#band-object">Bands</a> available for <a href="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2">Landsat Collection 2 Level 2</a> data:</p>
-<div id="8da11d26-3658-4b9e-b790-f84a2aded3e8" class="cell" data-outputid="8d9437ba-0003-47ac-dfbc-65596e7f0780">
+<div id="36" class="cell" data-outputid="8d9437ba-0003-47ac-dfbc-65596e7f0780">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>landsat <span class="op">=</span> catalog.get_collection(<span class="st">"landsat-c2-l2"</span>)</span>
@@ -449,22 +449,22 @@ How to run this tutorial
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(bands)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can see what <a href="https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#asset-object">Assets</a> are available on our item with:</p>
-<div id="4bb2b985-f18d-4161-9331-b4b259814f34" class="cell" data-outputid="8a0cc965-0cbd-450a-a716-3079a4d9b807">
+<div id="38" class="cell" data-outputid="8a0cc965-0cbd-450a-a716-3079a4d9b807">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame.from_dict(landsat.extra_fields[<span class="st">"item_assets"</span>], orient<span class="op">=</span><span class="st">"index"</span>)[</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"title"</span>, <span class="st">"description"</span>, <span class="st">"gsd"</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Some collections, like <a href="https://planetarycomputer.microsoft.com/dataset/daymet-daily-na">Daymet</a> include collection-level assets. You can use the <code>.assets</code> property to access those assets.</p>
-<div id="c2ffb4ee-2714-4bf0-8445-5d90fcc2520c" class="cell" data-outputid="199cdcaa-fb4a-40cc-bf5d-b8a73aa94a7a">
+<div id="40" class="cell" data-outputid="199cdcaa-fb4a-40cc-bf5d-b8a73aa94a7a">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>collection <span class="op">=</span> catalog.get_collection(<span class="st">"daymet-daily-na"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>collection</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Just like assets on items, these assets include links to data in Azure Blob Storage.</p>
-<div id="08b95491-3994-4cc5-8b24-ba113874835f" class="cell" data-outputid="3b2c42a4-2e09-4a71-d174-73a4a297c373">
+<div id="42" class="cell" data-outputid="3b2c42a4-2e09-4a71-d174-73a4a297c373">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>asset <span class="op">=</span> collection.assets[<span class="st">"zarr-https"</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>asset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="58b7f436-d739-40d8-93bc-631a2295709a" class="cell" data-outputid="db6fe215-273d-4a61-f6f2-df25e76aea25">
+<div id="43" class="cell" data-outputid="db6fe215-273d-4a61-f6f2-df25e76aea25">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fsspec</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
