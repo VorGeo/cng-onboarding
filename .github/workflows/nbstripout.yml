@@ -26,9 +26,13 @@ jobs:
           find . -name "*.ipynb" | while read notebook; do
             echo "Processing $notebook"
             nbstripout --keep-output "$notebook"
-            echo "Committing stripped notebook $notebook"
             git add "$notebook"
-            git commit -m "Strip metadata from $notebook"
+            if git status --porcelain | grep '^A'; then
+              echo "New files detected. Committing changes..."
+              git commit -m "Strip metadata from $notebook"
+            else
+              echo "No new files to commit."
+            fi
           done
 
       - name: Push changes
