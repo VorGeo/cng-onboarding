@@ -2,22 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/index.html</loc>
-    <lastmod>2025-04-02T20:15:33.127Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/mspc_stac/index.html</loc>
-    <lastmod>2025-04-02T20:15:33.129Z</lastmod>
-  </url>
-  <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
-    <lastmod>2025-04-02T20:15:33.126Z</lastmod>
+    <lastmod>2025-04-02T20:18:49.192Z</lastmod>
   </url>
   <url>
     <loc>https://VorGeo.github.io/cng-onboarding/about.html</loc>
-    <lastmod>2025-04-02T20:15:33.126Z</lastmod>
+    <lastmod>2025-04-02T20:18:49.191Z</lastmod>
   </url>
   <url>
-    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/e84_aws/test_nbstripout.html</loc>
-    <lastmod>2025-04-02T20:15:33.128Z</lastmod>
+    <loc>https://VorGeo.github.io/cng-onboarding/index.html</loc>
+    <lastmod>2025-04-02T20:18:49.191Z</lastmod>
+  </url>
+  <url>
+    <loc>https://VorGeo.github.io/cng-onboarding/tutorials/stac/mspc_stac/index.html</loc>
+    <lastmod>2025-04-02T20:18:49.194Z</lastmod>
   </url>
 </urlset>
