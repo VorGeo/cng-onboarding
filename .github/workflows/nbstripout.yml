@@ -27,7 +27,7 @@ jobs:
             echo "Processing $notebook"
             nbstripout --keep-output "$notebook"
             git add "$notebook"
-            if git status --porcelain | grep '^A'; then
+            if git status --porcelain | grep -E '^(A|M)'; then
               echo "New files detected. Committing changes..."
               git commit -m "Strip metadata from $notebook"
             else
