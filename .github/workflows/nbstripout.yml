@@ -15,6 +15,11 @@ jobs:
       - name: Install nbstripout
         run: pip install nbstripout
 
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Strip metadata from notebooks with verbose logging
         run: |
           echo "Stripping metadata from notebooks..."
